@@ -10,13 +10,15 @@ import SwiftUI
 
 struct AppView: View {
     var body: some View {
-        TabView {
-            FlightPickerView()
-                .tabItem {
-                    Image(systemName: "airplane")
-                    Text("Book a flight")
-            }
-        }
+//        TabView {
+//            AirportsPickerView()
+//                .tabItem {
+//                    Image(systemName: "airplane")
+//                    Text("Book a flight")
+//            }
+//        }
+        
+        AirportsPickerView()
     }
 }
 

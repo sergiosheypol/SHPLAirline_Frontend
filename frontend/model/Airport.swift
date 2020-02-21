@@ -18,4 +18,6 @@ struct Airport: Codable, Hashable {
     var currencyCode: String
     
     static let example = Airport(iataCode: "MAD", name: "Madrid", seoName: "madrid", countryCode: "es", regionCode: "MADRID", cityCode: "MADRID", currencyCode: "EUR")
+    
+    static let defaultAirport = Airport(iataCode: "", name: "", seoName: "", countryCode: "", regionCode: "", cityCode: "", currencyCode: "")
 }

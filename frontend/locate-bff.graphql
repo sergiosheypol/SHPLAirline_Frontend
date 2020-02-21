@@ -20,3 +20,21 @@ query getAirport($iataCode: String!) {
 }
 
 
+query getAutocomplete($phrase: String) {
+  autocomplete(phrase:$phrase) {
+    code
+    city {
+      code
+      name
+      countryCode
+    }
+    country {
+      code
+      name
+      currency
+      defaultAirportCode
+    }
+  }
+}
+
+
