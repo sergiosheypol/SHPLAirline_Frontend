@@ -1,15 +1,3 @@
-query getAllAirports {
-    airports {
-      iataCode
-      name
-      seoName
-      countryCode
-      regionCode
-      cityCode
-      currencyCode
-    }
-}
-
 query getAirport($iataCode: String!) {
   airport(iataCode:$iataCode) {
     name

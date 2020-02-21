@@ -21,15 +21,21 @@ struct DepartureAirportSelectionView: View {
         NavigationView {
             List {
                 Section {
-                    TextField("Search for airports",text: $autocompletePhrase)
+                    TextField("",text: $autocompletePhrase)
+                    Button(action: {
+                        self.locationsBffProvider.getAutocomplete(phrase: self.autocompletePhrase)
+                        print(self.locationsBffProvider.getSuggestions())
+                        self.areThereSuggestions = true
+                    }) {
+                        Text("Search for airports")
+                    }
                 }
                 
-                Button(action: {
-                    self.locationsBffProvider.getAutocomplete(phrase: self.autocompletePhrase)
-                    print(self.locationsBffProvider.getSuggestions())
-                    self.areThereSuggestions = true
-                }) {
-                    Text("Search for airports")
+                
+                if tripDetails.getDepartureAirport().iataCode != "" {
+                    Section(header: Text("Current selection")){
+                        GenericRowItem(title: tripDetails.getCityFrom().name, subtitle: tripDetails.getDepartureAirport().iataCode)
+                    }
                 }
                 
                 if areThereSuggestions {
@@ -39,11 +45,20 @@ struct DepartureAirportSelectionView: View {
                             
 //                            Text(airport.code)
                             Button(action: {
-                                self.tripDetails.setDepartureAirport(airport: Airport(iataCode: suggestion.code, name: "", seoName: "", countryCode: suggestion.country.code, regionCode: "", cityCode: suggestion.city.code, currencyCode: suggestion.country.currency))
+                                self.tripDetails.setDepartureAirport(airport:
+                                    Airport(iataCode: suggestion.code,
+                                            name: "", seoName: "",
+                                            countryCode: suggestion.country.code,
+                                            regionCode: "",
+                                            cityCode: suggestion.city.code,
+                                            currencyCode: suggestion.country.currency))
                                 
-                                self.tripDetails.setCityFrom(city: City(code: suggestion.city.code, name: suggestion.city.name, countryCode: suggestion.city.countryCode))
+                                self.tripDetails.setCityFrom(city:
+                                    City(code: suggestion.city.code,
+                                         name: suggestion.city.name,
+                                         countryCode: suggestion.city.countryCode))
                             }) {
-                                SuggestionRowView(city: City(code: suggestion.city.code, name: suggestion.city.name, countryCode: suggestion.city.countryCode), airport: Airport(iataCode: suggestion.code, name: "", seoName: "", countryCode: suggestion.country.code, regionCode: "", cityCode: suggestion.city.code, currencyCode: suggestion.country.currency))
+                                GenericRowItem(title: suggestion.city.name, subtitle: suggestion.code)
                             }.foregroundColor(.black)
                         }
                     }
@@ -51,7 +66,11 @@ struct DepartureAirportSelectionView: View {
                 
                 
             }.navigationBarTitle(Text("Select departure airport"))
-                .listStyle(GroupedListStyle())
+            .listStyle(GroupedListStyle())
+            .onAppear(perform: {
+                self.locationsBffProvider.getAutocomplete(phrase: "")
+                self.areThereSuggestions = true
+            })
             
         }
     }

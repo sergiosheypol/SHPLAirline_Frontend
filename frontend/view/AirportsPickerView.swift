@@ -22,11 +22,11 @@ struct AirportsPickerView: View {
                         if tripDetails.getDepartureAirport().iataCode == "" {
                             Text("Choose airport").foregroundColor(.gray)
                         } else {
-                            SuggestionRowView(city: tripDetails.getCityFrom(), airport: tripDetails.getDepartureAirport())
+                            GenericRowItem(title: tripDetails.getCityFrom().name,
+                                           subtitle: tripDetails.getDepartureAirport().iataCode)
                         }
                         
                     }
-                    
                 }
                 
                 Section(header: Text("Arrival airport")) {
@@ -34,7 +34,8 @@ struct AirportsPickerView: View {
                         if tripDetails.getArrivalAirport().iataCode == "" {
                             Text("Choose airport").foregroundColor(.gray)
                         } else {
-                            SuggestionRowView(city: tripDetails.getCityTo(), airport: tripDetails.getArrivalAirport())
+                            GenericRowItem(title: tripDetails.getCityTo().name,
+                                           subtitle: tripDetails.getArrivalAirport().iataCode)
                         }
                     }
                     

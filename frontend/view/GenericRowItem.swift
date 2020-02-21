@@ -8,16 +8,16 @@
 
 import SwiftUI
 
-struct SuggestionRowView: View {
+struct GenericRowItem: View {
     
-    var city: City
-    var airport: Airport
+    var title: String
+    var subtitle: String
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(city.name).font(.headline)
-                Text(airport.iataCode)
+                Text(title).font(.headline)
+                Text(subtitle)
             }
             
         }
