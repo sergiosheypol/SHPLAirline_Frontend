@@ -71,17 +71,23 @@ class LocationBffProvider: ObservableObject {
                 
         var suggestions: [Autocomplete] = []
         
-        for autocomplete in data {
-            let city = City(code: autocomplete!.city!.code!,
-                            name: autocomplete!.city!.name!,
-                            countryCode: autocomplete!.city!.countryCode!)
+        for autocompleteOpt in data {
             
-            let country = Country(code: autocomplete!.country!.code!,
-                                  name: autocomplete!.country!.name!,
-                                  currency: autocomplete!.country!.currency!,
-                                  defaultAirportCode: autocomplete!.country!.defaultAirportCode!)
+            guard let autocomplete = autocompleteOpt else {
+                break
+            }
             
-            suggestions.append(Autocomplete(code: autocomplete!.code!, city: city, country: country))
+            
+            let city = City(code: autocomplete.city!.code!,
+                            name: autocomplete.city!.name!,
+                            countryCode: autocomplete.city!.countryCode!)
+            
+            let country = Country(code: autocomplete.country!.code!,
+                                  name: autocomplete.country!.name!,
+                                  currency: autocomplete.country!.currency!,
+                                  defaultAirportCode: autocomplete.country!.defaultAirportCode!)
+            
+            suggestions.append(Autocomplete(code: autocomplete.code!, city: city, country: country))
         }
         
         return suggestions

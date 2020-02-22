@@ -15,55 +15,47 @@ struct AirportSelectionView: View {
     @EnvironmentObject var viewController: ViewController
     
     @State var autocompletePhrase = ""
-    
-    @State var areThereSuggestions = false
-    
+        
     let viewName: FlightType
     
     var body: some View {
         
-        NavigationView {
-            List {
+        List {
+            Section {
+                TextField("",text: $autocompletePhrase)
+                Button(action: {
+                    self.locationsBffProvider.getAutocomplete(phrase: self.autocompletePhrase)
+                    print(self.locationsBffProvider.getSuggestions())
+                }) {
+                    Text("Search for airports")
+                }
+            }
+            
+            
+            if checkIfAirportExists() {
+                Section(header: Text("Current selection")){
+                    displaySelection()
+                }
+            }
+            
+            Section(header: Text("Available airports")){
                 
-                Section {
-                    TextField("",text: $autocompletePhrase)
+                ForEach(locationsBffProvider.getSuggestions(), id: \.self) { suggestion in
                     Button(action: {
-                        self.locationsBffProvider.getAutocomplete(phrase: self.autocompletePhrase)
-                        print(self.locationsBffProvider.getSuggestions())
-                        self.areThereSuggestions = true
-                    }) {
-                        Text("Search for airports")
-                    }
-                }
-                
-                
-                if checkIfAirportExists() {
-                    Section(header: Text("Current selection")){
-                        displaySelection()
-                    }
-                }
-                
-                if areThereSuggestions {
-                    Section(header: Text("Departure airports")){
+                        self.saveSelection(suggestion: suggestion)
                         
-                        ForEach(locationsBffProvider.getSuggestions(), id: \.self) { suggestion in
-                            Button(action: {
-                                self.saveSelection(suggestion: suggestion)
-                                
-                                self.viewController.selected = 0
-                            }) {
-                                GenericRowItemView(title: suggestion.city.name, subtitle: suggestion.code)
-                            }.foregroundColor(.black)
-                        }
-                    }
+                        self.viewController.selected = 0
+                    }) {
+                        GenericRowItemView(title: suggestion.city.name, subtitle: suggestion.code)
+                    }.foregroundColor(.black)
                 }
-            }.navigationBarTitle(Text("Select \(viewName.rawValue.lowercased()) airport"))
-            .listStyle(GroupedListStyle())
-            .onAppear(perform: {
-                self.locationsBffProvider.getAutocomplete(phrase: "")
-                self.areThereSuggestions = true
-            })
+            }
         }
+        .navigationBarTitle(Text("Select \(viewName.rawValue.lowercased()) airport"), displayMode: .inline)
+        .listStyle(GroupedListStyle())
+        .onAppear(perform: {
+            self.locationsBffProvider.getAutocomplete(phrase: "")
+        })
     }
     
     func checkIfAirportExists() -> Bool {
