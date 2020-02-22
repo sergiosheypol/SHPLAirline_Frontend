@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		417AEBB723FF1B4700434381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBB623FF1B4700434381 /* AppDelegate.swift */; };
 		417AEBB923FF1B4700434381 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBB823FF1B4700434381 /* SceneDelegate.swift */; };
-		417AEBBB23FF1B4700434381 /* DepartureAirportSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBBA23FF1B4700434381 /* DepartureAirportSelectionView.swift */; };
 		417AEBBD23FF1B4900434381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417AEBBC23FF1B4900434381 /* Assets.xcassets */; };
 		417AEBC023FF1B4900434381 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417AEBBF23FF1B4900434381 /* Preview Assets.xcassets */; };
 		417AEBC323FF1B4900434381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417AEBC123FF1B4900434381 /* LaunchScreen.storyboard */; };
@@ -17,7 +16,7 @@
 		417AEBD423FFF55900434381 /* LocationBffProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBD323FFF55900434381 /* LocationBffProvider.swift */; };
 		417AEBD7240001AB00434381 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBD6240001AB00434381 /* Airport.swift */; };
 		417AEBDA2400343700434381 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBD92400343700434381 /* AppView.swift */; };
-		417AEBE32400509A00434381 /* ArrivalAirportSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBE22400509A00434381 /* ArrivalAirportSelectionView.swift */; };
+		417AEBE32400509A00434381 /* AirportSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBE22400509A00434381 /* AirportSelectionView.swift */; };
 		417AEBE52400519000434381 /* AirportsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBE42400519000434381 /* AirportsPickerView.swift */; };
 		417AEBE72400555500434381 /* TripDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBE62400555500434381 /* TripDetails.swift */; };
 		417AEBED24006B6400434381 /* LocateBFFGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBEC24006B6400434381 /* LocateBFFGraphQL.swift */; };
@@ -25,13 +24,13 @@
 		417AEBF124006C7400434381 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF024006C7400434381 /* Country.swift */; };
 		417AEBF324006CD900434381 /* Autocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF224006CD900434381 /* Autocomplete.swift */; };
 		417AEBF52400736D00434381 /* GenericRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF42400736D00434381 /* GenericRowItem.swift */; };
+		417AEBF72401447900434381 /* FlightTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF62401447900434381 /* FlightTypeEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		417AEBB323FF1B4700434381 /* frontend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = frontend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		417AEBB623FF1B4700434381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		417AEBB823FF1B4700434381 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		417AEBBA23FF1B4700434381 /* DepartureAirportSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureAirportSelectionView.swift; sourceTree = "<group>"; };
 		417AEBBC23FF1B4900434381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		417AEBBF23FF1B4900434381 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		417AEBC223FF1B4900434381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,7 +38,7 @@
 		417AEBD323FFF55900434381 /* LocationBffProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBffProvider.swift; sourceTree = "<group>"; };
 		417AEBD6240001AB00434381 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		417AEBD92400343700434381 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
-		417AEBE22400509A00434381 /* ArrivalAirportSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalAirportSelectionView.swift; sourceTree = "<group>"; };
+		417AEBE22400509A00434381 /* AirportSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportSelectionView.swift; sourceTree = "<group>"; };
 		417AEBE42400519000434381 /* AirportsPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsPickerView.swift; sourceTree = "<group>"; };
 		417AEBE62400555500434381 /* TripDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TripDetails.swift; path = frontend/model/TripDetails.swift; sourceTree = SOURCE_ROOT; };
 		417AEBEC24006B6400434381 /* LocateBFFGraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocateBFFGraphQL.swift; path = frontend/graphql/LocateBFFGraphQL.swift; sourceTree = SOURCE_ROOT; };
@@ -47,6 +46,7 @@
 		417AEBF024006C7400434381 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		417AEBF224006CD900434381 /* Autocomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocomplete.swift; sourceTree = "<group>"; };
 		417AEBF42400736D00434381 /* GenericRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericRowItem.swift; sourceTree = "<group>"; };
+		417AEBF62401447900434381 /* FlightTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTypeEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,11 +133,11 @@
 		417AEBDB2400343E00434381 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				417AEBE22400509A00434381 /* ArrivalAirportSelectionView.swift */,
-				417AEBBA23FF1B4700434381 /* DepartureAirportSelectionView.swift */,
+				417AEBE22400509A00434381 /* AirportSelectionView.swift */,
 				417AEBD92400343700434381 /* AppView.swift */,
 				417AEBE42400519000434381 /* AirportsPickerView.swift */,
 				417AEBF42400736D00434381 /* GenericRowItem.swift */,
+				417AEBF62401447900434381 /* FlightTypeEnum.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -245,15 +245,15 @@
 				417AEBB923FF1B4700434381 /* SceneDelegate.swift in Sources */,
 				417AEBEF24006C3200434381 /* City.swift in Sources */,
 				417AEBD423FFF55900434381 /* LocationBffProvider.swift in Sources */,
+				417AEBF72401447900434381 /* FlightTypeEnum.swift in Sources */,
 				417AEBF124006C7400434381 /* Country.swift in Sources */,
 				417AEBDA2400343700434381 /* AppView.swift in Sources */,
 				417AEBD7240001AB00434381 /* Airport.swift in Sources */,
 				417AEBE72400555500434381 /* TripDetails.swift in Sources */,
 				417AEBE52400519000434381 /* AirportsPickerView.swift in Sources */,
-				417AEBBB23FF1B4700434381 /* DepartureAirportSelectionView.swift in Sources */,
 				417AEBED24006B6400434381 /* LocateBFFGraphQL.swift in Sources */,
 				417AEBF52400736D00434381 /* GenericRowItem.swift in Sources */,
-				417AEBE32400509A00434381 /* ArrivalAirportSelectionView.swift in Sources */,
+				417AEBE32400509A00434381 /* AirportSelectionView.swift in Sources */,
 				417AEBF324006CD900434381 /* Autocomplete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

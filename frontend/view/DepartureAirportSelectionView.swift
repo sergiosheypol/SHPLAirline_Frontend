@@ -32,9 +32,9 @@ struct DepartureAirportSelectionView: View {
                 }
                 
                 
-                if tripDetails.getDepartureAirport().iataCode != "" {
+                if checkIfAirportExists(airportOpt: tripDetails.departureAirport) {
                     Section(header: Text("Current selection")){
-                        GenericRowItem(title: tripDetails.getCityFrom().name, subtitle: tripDetails.getDepartureAirport().iataCode)
+                        GenericRowItem(title: tripDetails.cityFrom!.name, subtitle: tripDetails.departureAirport!.iataCode)
                     }
                 }
                 
@@ -43,20 +43,19 @@ struct DepartureAirportSelectionView: View {
 
                         ForEach(locationsBffProvider.getSuggestions(), id: \.self) { suggestion in
                             
-//                            Text(airport.code)
                             Button(action: {
-                                self.tripDetails.setDepartureAirport(airport:
+                                self.tripDetails.departureAirport =
                                     Airport(iataCode: suggestion.code,
                                             name: "", seoName: "",
                                             countryCode: suggestion.country.code,
                                             regionCode: "",
                                             cityCode: suggestion.city.code,
-                                            currencyCode: suggestion.country.currency))
+                                            currencyCode: suggestion.country.currency)
                                 
-                                self.tripDetails.setCityFrom(city:
+                                self.tripDetails.cityFrom =
                                     City(code: suggestion.city.code,
                                          name: suggestion.city.name,
-                                         countryCode: suggestion.city.countryCode))
+                                         countryCode: suggestion.city.countryCode)
                             }) {
                                 GenericRowItem(title: suggestion.city.name, subtitle: suggestion.code)
                             }.foregroundColor(.black)
@@ -74,6 +73,16 @@ struct DepartureAirportSelectionView: View {
             
         }
     }
+    
+    func checkIfAirportExists(airportOpt: Airport?) -> Bool {
+        if airportOpt != nil {
+            return true
+        }
+        
+        return false
+    }
+    
+    
     
 }
 

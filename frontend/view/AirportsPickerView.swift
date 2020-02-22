@@ -12,31 +12,21 @@ struct AirportsPickerView: View {
     
     @EnvironmentObject var tripDetails: TripDetails
     
+    @State private var current: Int? = nil
+    
     var body: some View {
         
         NavigationView {
             List {
                 Section(header: Text("Departure airport")) {
-                    NavigationLink(destination: DepartureAirportSelectionView()) {
-                        
-                        if tripDetails.getDepartureAirport().iataCode == "" {
-                            Text("Choose airport").foregroundColor(.gray)
-                        } else {
-                            GenericRowItem(title: tripDetails.getCityFrom().name,
-                                           subtitle: tripDetails.getDepartureAirport().iataCode)
-                        }
-                        
+                    NavigationLink(destination: AirportSelectionView(viewName: FlightType.DEPARTURE), tag: 1, selection: $current) {
+                        showPicker(airportOpt: tripDetails.departureAirport, cityOpt: tripDetails.cityFrom)
                     }
                 }
                 
                 Section(header: Text("Arrival airport")) {
-                    NavigationLink(destination: ArrivalAirportSelectionView()) {
-                        if tripDetails.getArrivalAirport().iataCode == "" {
-                            Text("Choose airport").foregroundColor(.gray)
-                        } else {
-                            GenericRowItem(title: tripDetails.getCityTo().name,
-                                           subtitle: tripDetails.getArrivalAirport().iataCode)
-                        }
+                    NavigationLink(destination: AirportSelectionView(viewName: FlightType.ARRIVAL), tag: 2, selection: $current) {
+                        showPicker(airportOpt: tripDetails.arrivalAirport, cityOpt: tripDetails.cityTo)
                     }
                     
                 }
@@ -46,6 +36,19 @@ struct AirportsPickerView: View {
         }
         
     }
+    
+    func showPicker(airportOpt: Airport?, cityOpt: City?) -> GenericRowItem {
+        guard let airport = airportOpt,
+        let city = cityOpt else {
+            return GenericRowItem(title: "Choose airport", subtitle: "Tap on it")
+        }
+        
+        return GenericRowItem(title: city.name, subtitle: airport.iataCode)
+    }
+    
+
+
+
 }
 
 struct AirportsPickerView_Previews: PreviewProvider {
