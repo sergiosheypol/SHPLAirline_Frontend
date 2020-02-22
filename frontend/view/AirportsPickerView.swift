@@ -12,20 +12,20 @@ struct AirportsPickerView: View {
     
     @EnvironmentObject var tripDetails: TripDetails
     
-    @State private var current: Int? = nil
+    @EnvironmentObject var viewController: ViewController
     
     var body: some View {
         
         NavigationView {
             List {
                 Section(header: Text("Departure airport")) {
-                    NavigationLink(destination: AirportSelectionView(viewName: FlightType.DEPARTURE), tag: 1, selection: $current) {
+                    NavigationLink(destination: AirportSelectionView(viewName: FlightType.DEPARTURE), tag: 1, selection: $viewController.selected) {
                         showPicker(airportOpt: tripDetails.departureAirport, cityOpt: tripDetails.cityFrom)
                     }
                 }
                 
                 Section(header: Text("Arrival airport")) {
-                    NavigationLink(destination: AirportSelectionView(viewName: FlightType.ARRIVAL), tag: 2, selection: $current) {
+                    NavigationLink(destination: AirportSelectionView(viewName: FlightType.ARRIVAL), tag: 2, selection: $viewController.selected) {
                         showPicker(airportOpt: tripDetails.arrivalAirport, cityOpt: tripDetails.cityTo)
                     }
                     
@@ -37,13 +37,13 @@ struct AirportsPickerView: View {
         
     }
     
-    func showPicker(airportOpt: Airport?, cityOpt: City?) -> GenericRowItem {
+    func showPicker(airportOpt: Airport?, cityOpt: City?) -> GenericRowItemView {
         guard let airport = airportOpt,
         let city = cityOpt else {
-            return GenericRowItem(title: "Choose airport", subtitle: "Tap on it")
+            return GenericRowItemView(title: "Choose airport", subtitle: "Tap on it")
         }
         
-        return GenericRowItem(title: city.name, subtitle: airport.iataCode)
+        return GenericRowItemView(title: city.name, subtitle: airport.iataCode)
     }
     
 

@@ -1,5 +1,5 @@
 //
-//  ViewNamesEnum.swift
+//  ViewController.swift
 //  frontend
 //
 //  Created by Lopez de la Flor, Sergio on 22/02/2020.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-enum FlightType: String {
-    case DEPARTURE
-    case ARRIVAL
+class ViewController: ObservableObject {
+    @Published var selected: Int? = nil
 }

@@ -23,8 +23,9 @@
 		417AEBEF24006C3200434381 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBEE24006C3200434381 /* City.swift */; };
 		417AEBF124006C7400434381 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF024006C7400434381 /* Country.swift */; };
 		417AEBF324006CD900434381 /* Autocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF224006CD900434381 /* Autocomplete.swift */; };
-		417AEBF52400736D00434381 /* GenericRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF42400736D00434381 /* GenericRowItem.swift */; };
+		417AEBF52400736D00434381 /* GenericRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF42400736D00434381 /* GenericRowItemView.swift */; };
 		417AEBF72401447900434381 /* FlightTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF62401447900434381 /* FlightTypeEnum.swift */; };
+		417AEBF924014B0F00434381 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF824014B0F00434381 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +46,9 @@
 		417AEBEE24006C3200434381 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		417AEBF024006C7400434381 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		417AEBF224006CD900434381 /* Autocomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocomplete.swift; sourceTree = "<group>"; };
-		417AEBF42400736D00434381 /* GenericRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericRowItem.swift; sourceTree = "<group>"; };
+		417AEBF42400736D00434381 /* GenericRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericRowItemView.swift; sourceTree = "<group>"; };
 		417AEBF62401447900434381 /* FlightTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTypeEnum.swift; sourceTree = "<group>"; };
+		417AEBF824014B0F00434381 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +138,9 @@
 				417AEBE22400509A00434381 /* AirportSelectionView.swift */,
 				417AEBD92400343700434381 /* AppView.swift */,
 				417AEBE42400519000434381 /* AirportsPickerView.swift */,
-				417AEBF42400736D00434381 /* GenericRowItem.swift */,
+				417AEBF42400736D00434381 /* GenericRowItemView.swift */,
 				417AEBF62401447900434381 /* FlightTypeEnum.swift */,
+				417AEBF824014B0F00434381 /* ViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				417AEBF924014B0F00434381 /* ViewController.swift in Sources */,
 				417AEBB723FF1B4700434381 /* AppDelegate.swift in Sources */,
 				417AEBB923FF1B4700434381 /* SceneDelegate.swift in Sources */,
 				417AEBEF24006C3200434381 /* City.swift in Sources */,
@@ -252,7 +256,7 @@
 				417AEBE72400555500434381 /* TripDetails.swift in Sources */,
 				417AEBE52400519000434381 /* AirportsPickerView.swift in Sources */,
 				417AEBED24006B6400434381 /* LocateBFFGraphQL.swift in Sources */,
-				417AEBF52400736D00434381 /* GenericRowItem.swift in Sources */,
+				417AEBF52400736D00434381 /* GenericRowItemView.swift in Sources */,
 				417AEBE32400509A00434381 /* AirportSelectionView.swift in Sources */,
 				417AEBF324006CD900434381 /* Autocomplete.swift in Sources */,
 			);

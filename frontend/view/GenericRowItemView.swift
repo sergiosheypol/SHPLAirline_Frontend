@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct GenericRowItem: View {
+struct GenericRowItemView: View {
     
     var title: String
     var subtitle: String
@@ -24,8 +24,8 @@ struct GenericRowItem: View {
     }
 }
 
-//struct SuggestionRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SuggestionRowView()
-//    }
-//}
+struct GenericRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        GenericRowItemView(title:"Madrid", subtitle:"MAD")
+    }
+}

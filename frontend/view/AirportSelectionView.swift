@@ -12,6 +12,7 @@ struct AirportSelectionView: View {
     
     @EnvironmentObject var locationsBffProvider: LocationBffProvider
     @EnvironmentObject var tripDetails: TripDetails
+    @EnvironmentObject var viewController: ViewController
     
     @State var autocompletePhrase = ""
     
@@ -48,13 +49,15 @@ struct AirportSelectionView: View {
                         ForEach(locationsBffProvider.getSuggestions(), id: \.self) { suggestion in
                             Button(action: {
                                 self.saveSelection(suggestion: suggestion)
+                                
+                                self.viewController.selected = 0
                             }) {
-                                GenericRowItem(title: suggestion.city.name, subtitle: suggestion.code)
+                                GenericRowItemView(title: suggestion.city.name, subtitle: suggestion.code)
                             }.foregroundColor(.black)
                         }
                     }
                 }
-            }.navigationBarTitle(Text("Select arrival airport"))
+            }.navigationBarTitle(Text("Select \(viewName.rawValue.lowercased()) airport"))
             .listStyle(GroupedListStyle())
             .onAppear(perform: {
                 self.locationsBffProvider.getAutocomplete(phrase: "")
@@ -81,12 +84,12 @@ struct AirportSelectionView: View {
         return false
     }
     
-    func displaySelection() -> GenericRowItem {
+    func displaySelection() -> GenericRowItemView {
         switch viewName {
         case FlightType.DEPARTURE:
-            return GenericRowItem(title: tripDetails.cityFrom!.name, subtitle: tripDetails.departureAirport!.iataCode)
+            return GenericRowItemView(title: tripDetails.cityFrom!.name, subtitle: tripDetails.departureAirport!.iataCode)
         case FlightType.ARRIVAL:
-            return GenericRowItem(title: tripDetails.cityTo!.name, subtitle: tripDetails.arrivalAirport!.iataCode)
+            return GenericRowItemView(title: tripDetails.cityTo!.name, subtitle: tripDetails.arrivalAirport!.iataCode)
         }
     }
     
