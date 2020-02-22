@@ -7,6 +7,16 @@ query getAirport($iataCode: String!) {
   }
 }
 
+query getFares($dto: FarefinderDto!) {
+  fares(dto: $dto) {
+    flightNumber
+    departureAirport
+    arrivalAirport
+    connectingAirport
+    departureDate
+    arrivalDate
+  } 
+}
 
 query getAutocomplete($phrase: String) {
   autocomplete(phrase:$phrase) {

@@ -8,6 +8,6 @@
 
 import Foundation
 
-class ViewController: ObservableObject {
+class ViewsManager: ObservableObject {
     @Published var selected: Int? = nil
 }

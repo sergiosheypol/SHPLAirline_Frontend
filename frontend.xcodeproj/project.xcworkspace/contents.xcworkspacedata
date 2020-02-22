@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:frontend.xcodeproj">
+      location = "self:/Users/lopezs/sergioData/tfm/code/shpl-fe/frontend.xcodeproj">
    </FileRef>
 </Workspace>

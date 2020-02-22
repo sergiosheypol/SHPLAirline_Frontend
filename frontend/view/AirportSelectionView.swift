@@ -10,9 +10,9 @@ import SwiftUI
 
 struct AirportSelectionView: View {
     
-    @EnvironmentObject var locationsBffProvider: LocationBffProvider
+    @EnvironmentObject var shplBffProvider: ShplBffProvider
     @EnvironmentObject var tripDetails: TripDetails
-    @EnvironmentObject var viewController: ViewController
+    @EnvironmentObject var viewsManager: ViewsManager
     
     @State var autocompletePhrase = ""
         
@@ -24,8 +24,8 @@ struct AirportSelectionView: View {
             Section {
                 TextField("",text: $autocompletePhrase)
                 Button(action: {
-                    self.locationsBffProvider.getAutocomplete(phrase: self.autocompletePhrase)
-                    print(self.locationsBffProvider.getSuggestions())
+                    self.shplBffProvider.getAutocomplete(phrase: self.autocompletePhrase)
+                    print(self.shplBffProvider.getSuggestions())
                 }) {
                     Text("Search for airports")
                 }
@@ -40,11 +40,11 @@ struct AirportSelectionView: View {
             
             Section(header: Text("Available airports")){
                 
-                ForEach(locationsBffProvider.getSuggestions(), id: \.self) { suggestion in
+                ForEach(shplBffProvider.getSuggestions(), id: \.self) { suggestion in
                     Button(action: {
                         self.saveSelection(suggestion: suggestion)
                         
-                        self.viewController.selected = 0
+                        self.viewsManager.selected = 0
                     }) {
                         GenericRowItemView(title: suggestion.city.name, subtitle: suggestion.code)
                     }.foregroundColor(.black)
@@ -54,7 +54,7 @@ struct AirportSelectionView: View {
         .navigationBarTitle(Text("Select \(viewName.rawValue.lowercased()) airport"), displayMode: .inline)
         .listStyle(GroupedListStyle())
         .onAppear(perform: {
-            self.locationsBffProvider.getAutocomplete(phrase: "")
+            self.shplBffProvider.getAutocomplete(phrase: "")
         })
     }
     
@@ -116,7 +116,7 @@ struct AirportSelectionView: View {
 
 struct ArrivalAirportSelectionView_Previews: PreviewProvider {
     
-    static var locationsTest = LocationBffProvider()
+    static var locationsTest = ShplBffProvider()
     static var selectedAirports = TripDetails()
     
     

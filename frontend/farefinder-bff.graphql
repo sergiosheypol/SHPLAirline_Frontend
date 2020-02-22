@@ -1,0 +1,10 @@
+# query getFares($dto: FarefinderDto!) {
+#   fares(dto: $dto) {
+#     flightNumber
+#     departureAirport
+#     arrivalAirport
+#     connectingAirport
+#     departureDate
+#     arrivalDate
+#   } 
+# }

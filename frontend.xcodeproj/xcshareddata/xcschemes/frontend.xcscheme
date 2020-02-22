@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "417AEBB223FF1B4700434381"
-               BuildableName = "frontend.app"
+               BuildableName = "shpl-fe.app"
                BlueprintName = "frontend"
                ReferencedContainer = "container:frontend.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "417AEBB223FF1B4700434381"
-            BuildableName = "frontend.app"
+            BuildableName = "shpl-fe.app"
             BlueprintName = "frontend"
             ReferencedContainer = "container:frontend.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "417AEBB223FF1B4700434381"
-            BuildableName = "frontend.app"
+            BuildableName = "shpl-fe.app"
             BlueprintName = "frontend"
             ReferencedContainer = "container:frontend.xcodeproj">
          </BuildableReference>

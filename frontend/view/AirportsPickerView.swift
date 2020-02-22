@@ -12,20 +12,20 @@ struct AirportsPickerView: View {
     
     @EnvironmentObject var tripDetails: TripDetails
     
-    @EnvironmentObject var viewController: ViewController
+    @EnvironmentObject var viewsManager: ViewsManager
     
     var body: some View {
         
         NavigationView {
             List {
                 Section(header: Text("Departure airport")) {
-                    NavigationLink(destination: AirportSelectionView(viewName: FlightType.DEPARTURE), tag: 1, selection: $viewController.selected) {
+                    NavigationLink(destination: AirportSelectionView(viewName: FlightType.DEPARTURE), tag: 1, selection: $viewsManager.selected) {
                         showPicker(airportOpt: tripDetails.departureAirport, cityOpt: tripDetails.cityFrom)
                     }
                 }
                 
                 Section(header: Text("Arrival airport")) {
-                    NavigationLink(destination: AirportSelectionView(viewName: FlightType.ARRIVAL), tag: 2, selection: $viewController.selected) {
+                    NavigationLink(destination: AirportSelectionView(viewName: FlightType.ARRIVAL), tag: 2, selection: $viewsManager.selected) {
                         showPicker(airportOpt: tripDetails.arrivalAirport, cityOpt: tripDetails.cityTo)
                     }
                     

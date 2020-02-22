@@ -13,10 +13,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    var locationBffProvider = LocationBffProvider()
+    var shplBffProvider = ShplBffProvider()
     var tripDetails = TripDetails()
     
-    var viewController : ViewController = ViewController()
+    var viewsManager : ViewsManager = ViewsManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -25,9 +25,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let contentView = AppView()
-            .environmentObject(locationBffProvider)
+            .environmentObject(shplBffProvider)
             .environmentObject(tripDetails)
-            .environmentObject(viewController)
+            .environmentObject(viewsManager)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

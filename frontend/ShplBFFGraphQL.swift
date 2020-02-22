@@ -4,150 +4,61 @@
 import Apollo
 import Foundation
 
-public final class GetAllAirportsQuery: GraphQLQuery {
-  /// The raw GraphQL definition of this operation.
-  public let operationDefinition: String =
-    """
-    query getAllAirports {
-      airports {
-        __typename
-        iataCode
-        name
-        seoName
-        countryCode
-        regionCode
-        cityCode
-        currencyCode
-      }
-    }
-    """
+public struct FarefinderDto: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
 
-  public let operationName: String = "getAllAirports"
-
-  public init() {
+  /// - Parameters:
+  ///   - departureDateFrom
+  ///   - departureDateTo
+  ///   - arrivalAirport
+  ///   - departureAirport
+  ///   - currencyCode
+  public init(departureDateFrom: Swift.Optional<String?> = nil, departureDateTo: Swift.Optional<String?> = nil, arrivalAirport: Swift.Optional<String?> = nil, departureAirport: Swift.Optional<String?> = nil, currencyCode: Swift.Optional<String?> = nil) {
+    graphQLMap = ["departureDateFrom": departureDateFrom, "departureDateTo": departureDateTo, "arrivalAirport": arrivalAirport, "departureAirport": departureAirport, "currencyCode": currencyCode]
   }
 
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["Query"]
-
-    public static let selections: [GraphQLSelection] = [
-      GraphQLField("airports", type: .list(.object(Airport.selections))),
-    ]
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
+  public var departureDateFrom: Swift.Optional<String?> {
+    get {
+      return graphQLMap["departureDateFrom"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
     }
-
-    public init(airports: [Airport?]? = nil) {
-      self.init(unsafeResultMap: ["__typename": "Query", "airports": airports.flatMap { (value: [Airport?]) -> [ResultMap?] in value.map { (value: Airport?) -> ResultMap? in value.flatMap { (value: Airport) -> ResultMap in value.resultMap } } }])
+    set {
+      graphQLMap.updateValue(newValue, forKey: "departureDateFrom")
     }
+  }
 
-    public var airports: [Airport?]? {
-      get {
-        return (resultMap["airports"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Airport?] in value.map { (value: ResultMap?) -> Airport? in value.flatMap { (value: ResultMap) -> Airport in Airport(unsafeResultMap: value) } } }
-      }
-      set {
-        resultMap.updateValue(newValue.flatMap { (value: [Airport?]) -> [ResultMap?] in value.map { (value: Airport?) -> ResultMap? in value.flatMap { (value: Airport) -> ResultMap in value.resultMap } } }, forKey: "airports")
-      }
+  public var departureDateTo: Swift.Optional<String?> {
+    get {
+      return graphQLMap["departureDateTo"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
     }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "departureDateTo")
+    }
+  }
 
-    public struct Airport: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Airport"]
+  public var arrivalAirport: Swift.Optional<String?> {
+    get {
+      return graphQLMap["arrivalAirport"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "arrivalAirport")
+    }
+  }
 
-      public static let selections: [GraphQLSelection] = [
-        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("iataCode", type: .scalar(String.self)),
-        GraphQLField("name", type: .scalar(String.self)),
-        GraphQLField("seoName", type: .scalar(String.self)),
-        GraphQLField("countryCode", type: .scalar(String.self)),
-        GraphQLField("regionCode", type: .scalar(String.self)),
-        GraphQLField("cityCode", type: .scalar(String.self)),
-        GraphQLField("currencyCode", type: .scalar(String.self)),
-      ]
+  public var departureAirport: Swift.Optional<String?> {
+    get {
+      return graphQLMap["departureAirport"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "departureAirport")
+    }
+  }
 
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public init(iataCode: String? = nil, name: String? = nil, seoName: String? = nil, countryCode: String? = nil, regionCode: String? = nil, cityCode: String? = nil, currencyCode: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Airport", "iataCode": iataCode, "name": name, "seoName": seoName, "countryCode": countryCode, "regionCode": regionCode, "cityCode": cityCode, "currencyCode": currencyCode])
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      public var iataCode: String? {
-        get {
-          return resultMap["iataCode"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "iataCode")
-        }
-      }
-
-      public var name: String? {
-        get {
-          return resultMap["name"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "name")
-        }
-      }
-
-      public var seoName: String? {
-        get {
-          return resultMap["seoName"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "seoName")
-        }
-      }
-
-      public var countryCode: String? {
-        get {
-          return resultMap["countryCode"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "countryCode")
-        }
-      }
-
-      public var regionCode: String? {
-        get {
-          return resultMap["regionCode"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "regionCode")
-        }
-      }
-
-      public var cityCode: String? {
-        get {
-          return resultMap["cityCode"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "cityCode")
-        }
-      }
-
-      public var currencyCode: String? {
-        get {
-          return resultMap["currencyCode"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "currencyCode")
-        }
-      }
+  public var currencyCode: Swift.Optional<String?> {
+    get {
+      return graphQLMap["currencyCode"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "currencyCode")
     }
   }
 }
@@ -274,6 +185,150 @@ public final class GetAirportQuery: GraphQLQuery {
   }
 }
 
+public final class GetFaresQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query getFares($dto: FarefinderDto!) {
+      fares(dto: $dto) {
+        __typename
+        flightNumber
+        departureAirport
+        arrivalAirport
+        connectingAirport
+        departureDate
+        arrivalDate
+      }
+    }
+    """
+
+  public let operationName: String = "getFares"
+
+  public var dto: FarefinderDto
+
+  public init(dto: FarefinderDto) {
+    self.dto = dto
+  }
+
+  public var variables: GraphQLMap? {
+    return ["dto": dto]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("fares", arguments: ["dto": GraphQLVariable("dto")], type: .list(.object(Fare.selections))),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(fares: [Fare?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "fares": fares.flatMap { (value: [Fare?]) -> [ResultMap?] in value.map { (value: Fare?) -> ResultMap? in value.flatMap { (value: Fare) -> ResultMap in value.resultMap } } }])
+    }
+
+    public var fares: [Fare?]? {
+      get {
+        return (resultMap["fares"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Fare?] in value.map { (value: ResultMap?) -> Fare? in value.flatMap { (value: ResultMap) -> Fare in Fare(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [Fare?]) -> [ResultMap?] in value.map { (value: Fare?) -> ResultMap? in value.flatMap { (value: Fare) -> ResultMap in value.resultMap } } }, forKey: "fares")
+      }
+    }
+
+    public struct Fare: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Fare"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("flightNumber", type: .scalar(String.self)),
+        GraphQLField("departureAirport", type: .scalar(String.self)),
+        GraphQLField("arrivalAirport", type: .scalar(String.self)),
+        GraphQLField("connectingAirport", type: .scalar(String.self)),
+        GraphQLField("departureDate", type: .scalar(String.self)),
+        GraphQLField("arrivalDate", type: .scalar(String.self)),
+      ]
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(flightNumber: String? = nil, departureAirport: String? = nil, arrivalAirport: String? = nil, connectingAirport: String? = nil, departureDate: String? = nil, arrivalDate: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Fare", "flightNumber": flightNumber, "departureAirport": departureAirport, "arrivalAirport": arrivalAirport, "connectingAirport": connectingAirport, "departureDate": departureDate, "arrivalDate": arrivalDate])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var flightNumber: String? {
+        get {
+          return resultMap["flightNumber"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "flightNumber")
+        }
+      }
+
+      public var departureAirport: String? {
+        get {
+          return resultMap["departureAirport"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "departureAirport")
+        }
+      }
+
+      public var arrivalAirport: String? {
+        get {
+          return resultMap["arrivalAirport"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "arrivalAirport")
+        }
+      }
+
+      public var connectingAirport: String? {
+        get {
+          return resultMap["connectingAirport"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "connectingAirport")
+        }
+      }
+
+      public var departureDate: String? {
+        get {
+          return resultMap["departureDate"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "departureDate")
+        }
+      }
+
+      public var arrivalDate: String? {
+        get {
+          return resultMap["arrivalDate"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "arrivalDate")
+        }
+      }
+    }
+  }
+}
+
 public final class GetAutocompleteQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -294,11 +349,6 @@ public final class GetAutocompleteQuery: GraphQLQuery {
           name
           currency
           defaultAirportCode
-        }
-        coordinates {
-          __typename
-          latitude
-          longitude
         }
       }
     }
@@ -350,7 +400,6 @@ public final class GetAutocompleteQuery: GraphQLQuery {
         GraphQLField("code", type: .scalar(String.self)),
         GraphQLField("city", type: .object(City.selections)),
         GraphQLField("country", type: .object(Country.selections)),
-        GraphQLField("coordinates", type: .object(Coordinate.selections)),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -359,8 +408,8 @@ public final class GetAutocompleteQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(code: String? = nil, city: City? = nil, country: Country? = nil, coordinates: Coordinate? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Autocomplete", "code": code, "city": city.flatMap { (value: City) -> ResultMap in value.resultMap }, "country": country.flatMap { (value: Country) -> ResultMap in value.resultMap }, "coordinates": coordinates.flatMap { (value: Coordinate) -> ResultMap in value.resultMap }])
+      public init(code: String? = nil, city: City? = nil, country: Country? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Autocomplete", "code": code, "city": city.flatMap { (value: City) -> ResultMap in value.resultMap }, "country": country.flatMap { (value: Country) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -396,15 +445,6 @@ public final class GetAutocompleteQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue?.resultMap, forKey: "country")
-        }
-      }
-
-      public var coordinates: Coordinate? {
-        get {
-          return (resultMap["coordinates"] as? ResultMap).flatMap { Coordinate(unsafeResultMap: $0) }
-        }
-        set {
-          resultMap.updateValue(newValue?.resultMap, forKey: "coordinates")
         }
       }
 
@@ -528,53 +568,6 @@ public final class GetAutocompleteQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "defaultAirportCode")
-          }
-        }
-      }
-
-      public struct Coordinate: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["Coordinates"]
-
-        public static let selections: [GraphQLSelection] = [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("latitude", type: .scalar(String.self)),
-          GraphQLField("longitude", type: .scalar(String.self)),
-        ]
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public init(latitude: String? = nil, longitude: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "Coordinates", "latitude": latitude, "longitude": longitude])
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        public var latitude: String? {
-          get {
-            return resultMap["latitude"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "latitude")
-          }
-        }
-
-        public var longitude: String? {
-          get {
-            return resultMap["longitude"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "longitude")
           }
         }
       }

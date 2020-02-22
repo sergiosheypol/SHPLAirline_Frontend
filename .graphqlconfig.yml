@@ -1,0 +1,18 @@
+projects:
+  USERMGMT-API:
+    schemaPath: graphql/schema.json
+    includes:
+      - usermgmt.graphql
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: swift
+        generatedFileName: UsermgmtGraphQL.swift
+        docsFilePath: graphql
+        region: us-west-2
+        apiId: 6prsigt3hbcrnnj6tp6akguulu
+        maxDepth: 2
+extensions:
+  amplify:
+    version: 3
