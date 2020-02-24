@@ -193,6 +193,19 @@ public final class GetFaresQuery: GraphQLQuery {
       fares(dto: $dto) {
         __typename
         flightNumber
+        price {
+          __typename
+          base {
+            __typename
+            currencyCode
+            value
+          }
+          adjustment {
+            __typename
+            currencyCode
+            value
+          }
+        }
         departureAirport
         arrivalAirport
         connectingAirport
@@ -246,6 +259,7 @@ public final class GetFaresQuery: GraphQLQuery {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("flightNumber", type: .scalar(String.self)),
+        GraphQLField("price", type: .object(Price.selections)),
         GraphQLField("departureAirport", type: .scalar(String.self)),
         GraphQLField("arrivalAirport", type: .scalar(String.self)),
         GraphQLField("connectingAirport", type: .scalar(String.self)),
@@ -259,8 +273,8 @@ public final class GetFaresQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(flightNumber: String? = nil, departureAirport: String? = nil, arrivalAirport: String? = nil, connectingAirport: String? = nil, departureDate: String? = nil, arrivalDate: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Fare", "flightNumber": flightNumber, "departureAirport": departureAirport, "arrivalAirport": arrivalAirport, "connectingAirport": connectingAirport, "departureDate": departureDate, "arrivalDate": arrivalDate])
+      public init(flightNumber: String? = nil, price: Price? = nil, departureAirport: String? = nil, arrivalAirport: String? = nil, connectingAirport: String? = nil, departureDate: String? = nil, arrivalDate: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Fare", "flightNumber": flightNumber, "price": price.flatMap { (value: Price) -> ResultMap in value.resultMap }, "departureAirport": departureAirport, "arrivalAirport": arrivalAirport, "connectingAirport": connectingAirport, "departureDate": departureDate, "arrivalDate": arrivalDate])
       }
 
       public var __typename: String {
@@ -278,6 +292,15 @@ public final class GetFaresQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "flightNumber")
+        }
+      }
+
+      public var price: Price? {
+        get {
+          return (resultMap["price"] as? ResultMap).flatMap { Price(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "price")
         }
       }
 
@@ -323,6 +346,147 @@ public final class GetFaresQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "arrivalDate")
+        }
+      }
+
+      public struct Price: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Price"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("base", type: .object(Base.selections)),
+          GraphQLField("adjustment", type: .object(Adjustment.selections)),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(base: Base? = nil, adjustment: Adjustment? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Price", "base": base.flatMap { (value: Base) -> ResultMap in value.resultMap }, "adjustment": adjustment.flatMap { (value: Adjustment) -> ResultMap in value.resultMap }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var base: Base? {
+          get {
+            return (resultMap["base"] as? ResultMap).flatMap { Base(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "base")
+          }
+        }
+
+        public var adjustment: Adjustment? {
+          get {
+            return (resultMap["adjustment"] as? ResultMap).flatMap { Adjustment(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "adjustment")
+          }
+        }
+
+        public struct Base: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["PriceItem"]
+
+          public static let selections: [GraphQLSelection] = [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("currencyCode", type: .scalar(String.self)),
+            GraphQLField("value", type: .scalar(String.self)),
+          ]
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(currencyCode: String? = nil, value: String? = nil) {
+            self.init(unsafeResultMap: ["__typename": "PriceItem", "currencyCode": currencyCode, "value": value])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var currencyCode: String? {
+            get {
+              return resultMap["currencyCode"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "currencyCode")
+            }
+          }
+
+          public var value: String? {
+            get {
+              return resultMap["value"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "value")
+            }
+          }
+        }
+
+        public struct Adjustment: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["PriceItem"]
+
+          public static let selections: [GraphQLSelection] = [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("currencyCode", type: .scalar(String.self)),
+            GraphQLField("value", type: .scalar(String.self)),
+          ]
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(currencyCode: String? = nil, value: String? = nil) {
+            self.init(unsafeResultMap: ["__typename": "PriceItem", "currencyCode": currencyCode, "value": value])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var currencyCode: String? {
+            get {
+              return resultMap["currencyCode"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "currencyCode")
+            }
+          }
+
+          public var value: String? {
+            get {
+              return resultMap["value"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "value")
+            }
+          }
         }
       }
     }

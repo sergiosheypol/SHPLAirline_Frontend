@@ -11,7 +11,7 @@ import SwiftUI
 struct AppView: View {
     var body: some View {
         TabView {
-            AirportsPickerView()
+            FlightPickerView()
                 .tabItem {
                     Image(systemName: "airplane")
                     Text("Book a flight")

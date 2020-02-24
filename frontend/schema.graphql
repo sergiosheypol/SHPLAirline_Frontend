@@ -10,6 +10,16 @@ query getAirport($iataCode: String!) {
 query getFares($dto: FarefinderDto!) {
   fares(dto: $dto) {
     flightNumber
+    price {
+      base {
+        currencyCode
+        value
+      }
+      adjustment {
+        currencyCode
+        value
+      }
+    }
     departureAirport
     arrivalAirport
     connectingAirport

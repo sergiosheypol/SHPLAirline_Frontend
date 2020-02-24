@@ -12,29 +12,27 @@ import Apollo
 class ShplBffProvider: ObservableObject {
     
     private let endpoint = "http://localhost/graphql"
-    private let locationsBffClient: ApolloClient
-    
-    @Published private var airports: [Airport] = [Airport]()
-    
+    private let shplBffClient: ApolloClient
+        
     @Published private var autocompletedAirports: [Autocomplete] = [Autocomplete]()
-    
+    @Published private var departureFlights: [Fare] = [Fare]()
     
     init() {
-        locationsBffClient = ApolloClient(url: URL(string: self.endpoint)!)
-    }
-    
-    func getAirports() -> [Airport] {
-        return self.airports
+        shplBffClient = ApolloClient(url: URL(string: self.endpoint)!)
     }
     
     func getSuggestions() -> [Autocomplete] {
         return self.autocompletedAirports
     }
+    
+    func getDepartureFlights() -> [Fare] {
+        return self.departureFlights
+    }
 
     
     func getAutocomplete(phrase: String) {
         
-        locationsBffClient.fetch(query: GetAutocompleteQuery(phrase: phrase)) { result in
+        shplBffClient.fetch(query: GetAutocompleteQuery(phrase: phrase)) { result in
             switch result {
             case .failure(let error):
                 print("Something bad happened \(error)")
@@ -77,6 +75,74 @@ class ShplBffProvider: ObservableObject {
         }
 
         return suggestions
+    }
+    
+    func getAvailableFares(farefinderDto: FarefinderDto) {
+        shplBffClient.fetch(query: GetFaresQuery(dto: farefinderDto)) { result in
+            switch result {
+            case .failure(let error):
+                print("Something bad happened \(error)")
+            case .success(let result):
+                
+                if let fares = self.mapAvailableFares(graphQLResult: result) {
+                    self.departureFlights = fares
+                    print("Departure flight fares downloaded")
+                }
+                                
+            }
+        }
+    }
+    
+    func mapAvailableFares(graphQLResult: GraphQLResult<GetFaresQuery.Data>) -> [Fare]? {
+        guard let data = graphQLResult.data?.fares else {
+            print("Couldn't decode data from GraphQL")
+            return nil
+        }
+        
+        var fares: [Fare] = []
+        
+        for fareOpt in data {
+            guard let fare = fareOpt else {
+                break
+            }
+            
+            guard let price = fare.price else {
+                break
+            }
+            
+            let base = PriceItem(currencyCode: price.base!.currencyCode!,
+                                 value: price.base!.value!)
+            
+            let adjustment : PriceItem
+            
+            if let adjustmentOpt = price.adjustment {
+                adjustment = PriceItem(currencyCode: adjustmentOpt.currencyCode!, value: adjustmentOpt.value!)
+            } else {
+                adjustment = PriceItem(currencyCode: "", value: "")
+            }
+
+            let priceModel = Price(base: base, adjustment: adjustment)
+            
+            let connectingAirport : String
+            
+            if let connectingAirportOpt = fare.connectingAirport  {
+                connectingAirport = connectingAirportOpt
+            } else {
+                connectingAirport = ""
+            }
+            
+            let fareModel = Fare(flightNumber: fare.flightNumber!,
+                            departureAirport: fare.departureAirport!,
+                            arrivalAirport: fare.arrivalAirport!,
+                            connectingAirport: connectingAirport,
+                            departureDate: fare.departureDate!,
+                            arrivalDate: fare.arrivalDate!,
+                            price: priceModel)
+            
+            fares.append(fareModel)
+        }
+        
+        return fares
     }
 
     

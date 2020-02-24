@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var shplBffProvider = ShplBffProvider()
     var tripDetails = TripDetails()
     
+    
     var viewsManager : ViewsManager = ViewsManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -28,6 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environmentObject(shplBffProvider)
             .environmentObject(tripDetails)
             .environmentObject(viewsManager)
+        
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

@@ -116,11 +116,11 @@ struct AirportSelectionView: View {
 
 struct ArrivalAirportSelectionView_Previews: PreviewProvider {
     
-    static var locationsTest = ShplBffProvider()
-    static var selectedAirports = TripDetails()
+    static var shplBffProvider = ShplBffProvider()
+    static var tripDetails = TripDetails()
     
     
     static var previews: some View {
-        AirportSelectionView(viewName: FlightType.DEPARTURE).environmentObject(locationsTest).environmentObject(selectedAirports)
+        AirportSelectionView(viewName: FlightType.DEPARTURE).environmentObject(tripDetails).environmentObject(shplBffProvider)
     }
 }

@@ -13,5 +13,7 @@ class TripDetails: ObservableObject {
     @Published var arrivalAirport: Airport?
     @Published var cityFrom: City?
     @Published var cityTo: City?
+    @Published var departureDate: Date = Date()
+    @Published var arrivalDate: Date = Date()
     
 }
