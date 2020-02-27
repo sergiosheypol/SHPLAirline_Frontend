@@ -16,10 +16,14 @@ struct FareListView: View {
     var body: some View {
         
         List{
-            ForEach(shplBffProvider.getDepartureFlights(), id: \.self) { fare in
-                GenericRowItemView(title: fare.flightNumber, subtitle: fare.departureDate)
+            ForEach(self.shplBffProvider.getDepartureFlightsKeys(), id: \.self) { key in
+                Section(header: Text(key)) {
+                    ForEach(self.shplBffProvider.getFaresForKey(key: key), id: \.self) { fare in
+                        FareRowDetailView(fare: fare, cityFrom: self.tripDetails.cityFrom!, cityTo: self.tripDetails.cityTo!)
+                    }
+                }
             }
-        }
+            }.listStyle(GroupedListStyle())
         .onAppear(perform: {self.callFareProvider()})
         .navigationBarTitle(Text("Available departure flights"), displayMode: .inline)
     }
@@ -38,12 +42,17 @@ struct FareListView: View {
             departureAirport: tripDetails.departureAirport?.iataCode,
             currencyCode: tripDetails.departureAirport?.currencyCode))
         
-        
     }
 }
 
 struct FareListView_Previews: PreviewProvider {
+    
+    static let shplBffProvider = ShplBffProvider()
+    static let tripDetails = TripDetails()
+    
     static var previews: some View {
         FareListView()
+            .environmentObject(shplBffProvider)
+            .environmentObject(tripDetails)
     }
 }

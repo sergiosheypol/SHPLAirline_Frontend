@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		411445C02405A7CE0064D078 /* FareRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411445BF2405A7CE0064D078 /* FareRowDetailView.swift */; };
 		41417006240199E400F72FD7 /* ShplBFFGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41417005240199E400F72FD7 /* ShplBFFGraphQL.swift */; };
 		417AEBB723FF1B4700434381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBB623FF1B4700434381 /* AppDelegate.swift */; };
 		417AEBB923FF1B4700434381 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBB823FF1B4700434381 /* SceneDelegate.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		411445BF2405A7CE0064D078 /* FareRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareRowDetailView.swift; sourceTree = "<group>"; };
 		41417005240199E400F72FD7 /* ShplBFFGraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShplBFFGraphQL.swift; path = frontend/ShplBFFGraphQL.swift; sourceTree = SOURCE_ROOT; };
 		417AEBB323FF1B4700434381 /* shpl-fe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shpl-fe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		417AEBB623FF1B4700434381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				417AEBF42400736D00434381 /* GenericRowItemView.swift */,
 				41DD7FE924044DF200894749 /* mainScreen */,
 				41DD7FEA24044E1A00894749 /* FareListView.swift */,
+				411445BF2405A7CE0064D078 /* FareRowDetailView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				417AEBF52400736D00434381 /* GenericRowItemView.swift in Sources */,
 				417AEBE32400509A00434381 /* AirportSelectionView.swift in Sources */,
 				41DD7FEB24044E1A00894749 /* FareListView.swift in Sources */,
+				411445C02405A7CE0064D078 /* FareRowDetailView.swift in Sources */,
 				417AEBF324006CD900434381 /* Autocomplete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
