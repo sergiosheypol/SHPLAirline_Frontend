@@ -17,7 +17,7 @@ struct FareListView: View {
         
         List{
             ForEach(shplBffProvider.getDepartureFlights(), id: \.self) { fare in
-                GenericRowItemView(title: fare.flightNumber, subtitle: fare.departureDate)
+                FareRowDetailView(fare: fare, cityFrom: self.tripDetails.cityFrom!, cityTo: self.tripDetails.cityTo!)
             }
         }
         .onAppear(perform: {self.callFareProvider()})
@@ -29,11 +29,11 @@ struct FareListView: View {
         formatter.dateFormat = "yyyy-MM-dd"
         
         let depDate = formatter.string(from: tripDetails.departureDate)
-        let arrDate = formatter.string(from: tripDetails.arrivalDate)
+//        let arrDate = formatter.string(from: tripDetails.arrivalDate)
         
         shplBffProvider.getAvailableFares(farefinderDto: FarefinderDto(
             departureDateFrom: depDate,
-            departureDateTo: arrDate,
+            departureDateTo: depDate,
             arrivalAirport: tripDetails.arrivalAirport?.iataCode,
             departureAirport: tripDetails.departureAirport?.iataCode,
             currencyCode: tripDetails.departureAirport?.currencyCode))
@@ -43,7 +43,13 @@ struct FareListView: View {
 }
 
 struct FareListView_Previews: PreviewProvider {
+    
+    static let shplBffProvider = ShplBffProvider()
+    static let tripDetails = TripDetails()
+    
     static var previews: some View {
         FareListView()
+            .environmentObject(shplBffProvider)
+            .environmentObject(tripDetails)
     }
 }

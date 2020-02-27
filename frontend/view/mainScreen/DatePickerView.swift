@@ -28,7 +28,7 @@ struct DatePickerView: View {
         case FlightType.DEPARTURE:
             return $tripDetails.departureDate
         case FlightType.ARRIVAL:
-            return $tripDetails.arrivalDate
+            return $tripDetails.returnDate
         }
     }
 }

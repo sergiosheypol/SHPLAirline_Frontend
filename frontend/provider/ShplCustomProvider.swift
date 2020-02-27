@@ -15,10 +15,6 @@ struct JsonQueryRequest: Encodable {
 class ShplCustomProvider: ObservableObject {
     private let endpoint = URL(string: "http://localhost/graphql")
     
-    
-    
-    
-    
     @Published private var autocompletedAirports: [Autocomplete] = [Autocomplete]()
 
     

@@ -11,11 +11,11 @@ import Apollo
 
 class ShplBffProvider: ObservableObject {
     
-    private let endpoint = "http://localhost/graphql"
+    private let endpoint = "http://localhost:3000/graphql"
     private let shplBffClient: ApolloClient
         
     @Published private var autocompletedAirports: [Autocomplete] = [Autocomplete]()
-    @Published private var departureFlights: [Fare] = [Fare]()
+    @Published private var fares: [Fare] = [Fare]()
     
     init() {
         shplBffClient = ApolloClient(url: URL(string: self.endpoint)!)
@@ -26,7 +26,7 @@ class ShplBffProvider: ObservableObject {
     }
     
     func getDepartureFlights() -> [Fare] {
-        return self.departureFlights
+        return self.fares
     }
 
     
@@ -85,7 +85,7 @@ class ShplBffProvider: ObservableObject {
             case .success(let result):
                 
                 if let fares = self.mapAvailableFares(graphQLResult: result) {
-                    self.departureFlights = fares
+                    self.fares = fares
                     print("Departure flight fares downloaded")
                 }
                                 
@@ -131,12 +131,15 @@ class ShplBffProvider: ObservableObject {
                 connectingAirport = ""
             }
             
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+
             let fareModel = Fare(flightNumber: fare.flightNumber!,
                             departureAirport: fare.departureAirport!,
                             arrivalAirport: fare.arrivalAirport!,
                             connectingAirport: connectingAirport,
-                            departureDate: fare.departureDate!,
-                            arrivalDate: fare.arrivalDate!,
+                            departureDate: formatter.date(from: fare.departureDate!)!,
+                            arrivalDate: formatter.date(from: fare.arrivalDate!)!,
                             price: priceModel)
             
             fares.append(fareModel)

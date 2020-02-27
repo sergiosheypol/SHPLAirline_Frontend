@@ -14,6 +14,8 @@ struct City: Codable, Hashable {
     var countryCode: String
     
     static let defaultCity = City(code: "", name: "", countryCode: "")
+    
+    static let exampleCity = City(code: "MADRID", name: "Madrid", countryCode: "ES")
 }
 
 

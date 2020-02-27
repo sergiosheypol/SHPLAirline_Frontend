@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var shplBffProvider = ShplBffProvider()
     var tripDetails = TripDetails()
+    var bookingDetails = BookingDetails()
     
     
     var viewsManager : ViewsManager = ViewsManager()
@@ -29,6 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environmentObject(shplBffProvider)
             .environmentObject(tripDetails)
             .environmentObject(viewsManager)
+            .environmentObject(bookingDetails)
         
 
         // Use a UIHostingController as window root view controller.

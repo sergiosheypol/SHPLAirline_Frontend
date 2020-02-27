@@ -41,7 +41,7 @@ struct FlightPickerView: View {
                     
                     Section(header: Text("Select arrival date")) {
                         NavigationLink(destination: DatePickerView(viewName: FlightType.ARRIVAL), tag: 4, selection: $viewsManager.selected) {
-                            showDatePicker(dateOpt: tripDetails.arrivalDate)
+                            showDatePicker(dateOpt: tripDetails.returnDate)
                         }
                     }
                 }
