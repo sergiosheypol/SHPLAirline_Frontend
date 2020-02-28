@@ -31,6 +31,7 @@
 		4191781E2402B657006BBBE0 /* ModalView in Frameworks */ = {isa = PBXBuildFile; productRef = 4191781D2402B657006BBBE0 /* ModalView */; };
 		419178202402D798006BBBE0 /* ShplCustomProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4191781F2402D798006BBBE0 /* ShplCustomProvider.swift */; };
 		41A13D0F24085948006CBF6A /* BookingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A13D0E24085948006CBF6A /* BookingDetails.swift */; };
+		41A13D1224097B23006CBF6A /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A13D1124097B23006CBF6A /* CheckoutView.swift */; };
 		41DD7FEB24044E1A00894749 /* FareListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD7FEA24044E1A00894749 /* FareListView.swift */; };
 		41DD7FED2404513500894749 /* Fare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD7FEC2404513500894749 /* Fare.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		4191781A2402B282006BBBE0 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		4191781F2402D798006BBBE0 /* ShplCustomProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShplCustomProvider.swift; sourceTree = "<group>"; };
 		41A13D0E24085948006CBF6A /* BookingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetails.swift; sourceTree = "<group>"; };
+		41A13D1124097B23006CBF6A /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		41DD7FEA24044E1A00894749 /* FareListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareListView.swift; sourceTree = "<group>"; };
 		41DD7FEC2404513500894749 /* Fare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fare.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,10 +156,11 @@
 			children = (
 				417AEBFA2401571C00434381 /* helper */,
 				417AEBD92400343700434381 /* AppView.swift */,
+				41A13D1124097B23006CBF6A /* CheckoutView.swift */,
+				417AEBE42400519000434381 /* FlightPickerView.swift */,
 				417AEBF42400736D00434381 /* GenericRowItemView.swift */,
 				41DD7FE924044DF200894749 /* mainScreen */,
-				41DD7FEA24044E1A00894749 /* FareListView.swift */,
-				411445BF2405A7CE0064D078 /* FareRowDetailView.swift */,
+				41A13D1024097B02006CBF6A /* farePickerScreen */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -171,10 +174,18 @@
 			path = helper;
 			sourceTree = "<group>";
 		};
+		41A13D1024097B02006CBF6A /* farePickerScreen */ = {
+			isa = PBXGroup;
+			children = (
+				41DD7FEA24044E1A00894749 /* FareListView.swift */,
+				411445BF2405A7CE0064D078 /* FareRowDetailView.swift */,
+			);
+			path = farePickerScreen;
+			sourceTree = "<group>";
+		};
 		41DD7FE924044DF200894749 /* mainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				417AEBE42400519000434381 /* FlightPickerView.swift */,
 				417AEBE22400509A00434381 /* AirportSelectionView.swift */,
 				4191781A2402B282006BBBE0 /* DatePickerView.swift */,
 			);
@@ -294,6 +305,7 @@
 				417AEBDA2400343700434381 /* AppView.swift in Sources */,
 				417AEBD7240001AB00434381 /* Airport.swift in Sources */,
 				41A13D0F24085948006CBF6A /* BookingDetails.swift in Sources */,
+				41A13D1224097B23006CBF6A /* CheckoutView.swift in Sources */,
 				417AEBE72400555500434381 /* TripDetails.swift in Sources */,
 				417AEBE52400519000434381 /* FlightPickerView.swift in Sources */,
 				419178202402D798006BBBE0 /* ShplCustomProvider.swift in Sources */,

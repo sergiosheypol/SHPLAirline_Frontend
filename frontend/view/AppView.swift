@@ -11,10 +11,14 @@ import SwiftUI
 struct AppView: View {
     var body: some View {
         TabView {
-            FlightPickerView()
-                .tabItem {
+            FlightPickerView().tabItem {
                     Image(systemName: "airplane")
                     Text("Book a flight")
+            }
+            
+            CheckoutView().tabItem {
+                    Image(systemName: "creditcard")
+                    Text("Basket")
             }
         }
         
@@ -22,8 +26,6 @@ struct AppView: View {
 }
 
 struct AppView_Previews: PreviewProvider {
-    
-    
     static var previews: some View {
         AppView()
     }

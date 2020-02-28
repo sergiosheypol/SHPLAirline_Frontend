@@ -11,5 +11,5 @@ import Foundation
 
 enum FlightType: String {
     case DEPARTURE
-    case ARRIVAL
+    case RETURN
 }

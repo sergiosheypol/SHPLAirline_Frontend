@@ -9,6 +9,6 @@
 import Foundation
 
 class BookingDetails: ObservableObject {
-    @Published var departureFlight : Fare?
+    @Published var departureFlight : Fare? 
     @Published var returnFlight : Fare?
 }

@@ -27,7 +27,7 @@ struct DatePickerView: View {
         switch viewName {
         case FlightType.DEPARTURE:
             return $tripDetails.departureDate
-        case FlightType.ARRIVAL:
+        case FlightType.RETURN:
             return $tripDetails.returnDate
         }
     }

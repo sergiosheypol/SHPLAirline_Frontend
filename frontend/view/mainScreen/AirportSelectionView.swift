@@ -65,7 +65,7 @@ struct AirportSelectionView: View {
         switch viewName {
         case FlightType.DEPARTURE:
             airport = tripDetails.departureAirport
-        case FlightType.ARRIVAL:
+        case FlightType.RETURN:
             airport = tripDetails.arrivalAirport
         }
         
@@ -80,7 +80,7 @@ struct AirportSelectionView: View {
         switch viewName {
         case FlightType.DEPARTURE:
             return GenericRowItemView(title: tripDetails.cityFrom!.name, subtitle: tripDetails.departureAirport!.iataCode)
-        case FlightType.ARRIVAL:
+        case FlightType.RETURN:
             return GenericRowItemView(title: tripDetails.cityTo!.name, subtitle: tripDetails.arrivalAirport!.iataCode)
         }
     }
@@ -106,7 +106,7 @@ struct AirportSelectionView: View {
         case FlightType.DEPARTURE:
             self.tripDetails.departureAirport = self.configureAirportFromSuggestion(suggestion: suggestion)
             self.tripDetails.cityFrom = self.configureCityFromSuggestion(suggestion: suggestion)
-        case FlightType.ARRIVAL:
+        case FlightType.RETURN:
             self.tripDetails.arrivalAirport = self.configureAirportFromSuggestion(suggestion: suggestion)
             self.tripDetails.cityTo = self.configureCityFromSuggestion(suggestion: suggestion)
         }
@@ -118,9 +118,13 @@ struct ArrivalAirportSelectionView_Previews: PreviewProvider {
     
     static var shplBffProvider = ShplBffProvider()
     static var tripDetails = TripDetails()
+    static var viewsManager = ViewsManager()
     
     
     static var previews: some View {
-        AirportSelectionView(viewName: FlightType.DEPARTURE).environmentObject(tripDetails).environmentObject(shplBffProvider)
+        AirportSelectionView(viewName: FlightType.DEPARTURE)
+            .environmentObject(tripDetails)
+            .environmentObject(shplBffProvider)
+        .environmentObject(viewsManager)
     }
 }

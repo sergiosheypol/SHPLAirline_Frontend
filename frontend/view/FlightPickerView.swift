@@ -25,14 +25,14 @@ struct FlightPickerView: View {
                             showAirportPicker(airportOpt: tripDetails.departureAirport, cityOpt: tripDetails.cityFrom)
                         }
                     }
-
+                    
                     Section(header: Text("Arrival airport")) {
-                        NavigationLink(destination: AirportSelectionView(viewName: FlightType.ARRIVAL), tag: 2, selection: $viewsManager.selected) {
+                        NavigationLink(destination: AirportSelectionView(viewName: FlightType.RETURN), tag: 2, selection: $viewsManager.selected) {
                             showAirportPicker(airportOpt: tripDetails.arrivalAirport, cityOpt: tripDetails.cityTo)
                         }
-
+                        
                     }
-
+                    
                     Section(header: Text("Select departure date")) {
                         NavigationLink(destination: DatePickerView(viewName: FlightType.DEPARTURE), tag: 3, selection: $viewsManager.selected) {
                             showDatePicker(dateOpt: tripDetails.departureDate)
@@ -40,24 +40,39 @@ struct FlightPickerView: View {
                     }
                     
                     Section(header: Text("Select arrival date")) {
-                        NavigationLink(destination: DatePickerView(viewName: FlightType.ARRIVAL), tag: 4, selection: $viewsManager.selected) {
+                        NavigationLink(destination: DatePickerView(viewName: FlightType.RETURN), tag: 4, selection: $viewsManager.selected) {
                             showDatePicker(dateOpt: tripDetails.returnDate)
                         }
                     }
+                    
+                    Section {
+                        NavigationLink(
+                            destination:FareListView(flightType: FlightType.DEPARTURE),
+                            tag: 10,
+                            selection: $viewsManager.selected) {
+                                Text("Search")
+                        }.foregroundColor(Color.green)
+                    }
+                    
+                
                 }
                 .navigationBarTitle(Text("Choose your flight"))
+    
                 
                 
-                NavigationLink(destination:FareListView()) {
-                    Text("Search")
+                NavigationLink(
+                    destination: CheckoutView(),
+                    tag: 12,
+                    selection: $viewsManager.selected) {
+                        Text("")
                 }
-                .font(.headline)
-                .padding(10)
-                .foregroundColor(.white)
-                .background(Color.blue)
-                .cornerRadius(CGFloat(5))
                 
-                
+                NavigationLink(
+                    destination: FareListView(flightType: FlightType.RETURN),
+                    tag: 11,
+                    selection: $viewsManager.selected) {
+                        Text("")
+                }
             }
         }
         
@@ -65,8 +80,8 @@ struct FlightPickerView: View {
     
     func showAirportPicker(airportOpt: Airport?, cityOpt: City?) -> GenericRowItemView {
         guard let airport = airportOpt,
-        let city = cityOpt else {
-            return GenericRowItemView(title: "Choose airport", subtitle: "Tap on it")
+            let city = cityOpt else {
+                return GenericRowItemView(title: "Choose airport", subtitle: "Tap on it")
         }
         
         return GenericRowItemView(title: city.name, subtitle: airport.iataCode)
@@ -85,9 +100,9 @@ struct FlightPickerView: View {
         return GenericRowItemView(title: "Date: ", subtitle: formatter.string(from: date))
     }
     
-
-
-
+    
+    
+    
 }
 
 struct AirportsPickerView_Previews: PreviewProvider {
