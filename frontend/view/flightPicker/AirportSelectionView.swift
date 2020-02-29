@@ -40,9 +40,12 @@ struct AirportSelectionView: View {
             
             Section(header: Text("Available airports")){
                 ForEach(shplBffProvider.getSuggestions(), id: \.self) { suggestion in
-                    GenericRowItemView(title: suggestion.city.name, subtitle: suggestion.code).onTapGesture {
-                        self.saveSelection(suggestion: suggestion)
-                        self.viewsManager.selected = 0
+                    GenericRowItemView(
+                        title: suggestion.city.name,
+                        subtitle: "\(suggestion.code)")
+                        .onTapGesture {
+                            self.saveSelection(suggestion: suggestion)
+                            self.viewsManager.selected = 0
                     }
                 }
             }

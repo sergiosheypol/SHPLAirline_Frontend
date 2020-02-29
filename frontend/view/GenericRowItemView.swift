@@ -17,10 +17,11 @@ struct GenericRowItemView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(title).font(.headline)
-                Text(subtitle)
+                Divider()
+                Text(subtitle).font(.subheadline)
             }
             
-        }
+        }.padding(15)
     }
 }
 

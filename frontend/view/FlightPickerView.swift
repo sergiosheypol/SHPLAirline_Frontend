@@ -78,13 +78,13 @@ struct FlightPickerView: View {
         
         let formatter = DateFormatter()
         formatter.dateStyle = .short
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "dd-MM-yyyy"
         
         guard let date = dateOpt else {
             return GenericRowItemView(title: "Choose departure date", subtitle: "Tap on it")
         }
         
-        return GenericRowItemView(title: "Date: ", subtitle: formatter.string(from: date))
+        return GenericRowItemView(title: "Date", subtitle: formatter.string(from: date))
     }
     
     

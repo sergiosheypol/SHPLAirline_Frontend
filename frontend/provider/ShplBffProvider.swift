@@ -11,7 +11,7 @@ import Apollo
 
 class ShplBffProvider: ObservableObject {
     
-    private let endpoint = "http://localhost:3000/graphql"
+    private let endpoint = "http://192.168.1.49:3000/graphql"
     private let shplBffClient: ApolloClient
         
     @Published private var autocompletedAirports: [Autocomplete] = [Autocomplete]()

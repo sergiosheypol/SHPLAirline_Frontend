@@ -30,9 +30,13 @@ struct FareRowDetailView: View {
             Spacer()
             VStack {
                 Image(systemName: "airplane")
-                Text("\(fare.flightNumber)")
+                Text("\(fare.price.base.value)\(fare.price.base.currencyCode)")
                     .font(.subheadline)
+                    .foregroundColor(.green)
+                Text("\(fare.flightNumber)")
+                    .font(.caption)
                     .foregroundColor(.gray)
+                
             }
             Spacer()
             VStack(spacing:15) {
