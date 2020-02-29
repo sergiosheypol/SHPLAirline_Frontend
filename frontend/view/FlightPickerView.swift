@@ -60,19 +60,6 @@ struct FlightPickerView: View {
     
                 
                 
-                NavigationLink(
-                    destination: CheckoutView(),
-                    tag: 12,
-                    selection: $viewsManager.selected) {
-                        Text("")
-                }
-                
-                NavigationLink(
-                    destination: FareListView(flightType: FlightType.RETURN),
-                    tag: 11,
-                    selection: $viewsManager.selected) {
-                        Text("")
-                }
             }
         }
         

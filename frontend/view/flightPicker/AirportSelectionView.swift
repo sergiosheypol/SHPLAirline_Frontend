@@ -15,7 +15,7 @@ struct AirportSelectionView: View {
     @EnvironmentObject var viewsManager: ViewsManager
     
     @State var autocompletePhrase = ""
-        
+    
     let viewName: FlightType
     
     var body: some View {
@@ -39,15 +39,11 @@ struct AirportSelectionView: View {
             }
             
             Section(header: Text("Available airports")){
-                
                 ForEach(shplBffProvider.getSuggestions(), id: \.self) { suggestion in
-                    Button(action: {
+                    GenericRowItemView(title: suggestion.city.name, subtitle: suggestion.code).onTapGesture {
                         self.saveSelection(suggestion: suggestion)
-                        
                         self.viewsManager.selected = 0
-                    }) {
-                        GenericRowItemView(title: suggestion.city.name, subtitle: suggestion.code)
-                    }.foregroundColor(.black)
+                    }
                 }
             }
         }
@@ -125,6 +121,6 @@ struct ArrivalAirportSelectionView_Previews: PreviewProvider {
         AirportSelectionView(viewName: FlightType.DEPARTURE)
             .environmentObject(tripDetails)
             .environmentObject(shplBffProvider)
-        .environmentObject(viewsManager)
+            .environmentObject(viewsManager)
     }
 }

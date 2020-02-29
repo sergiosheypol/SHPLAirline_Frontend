@@ -22,7 +22,7 @@ struct FareRowDetailView: View {
         
         HStack() {
             VStack(spacing: 15) {
-                setDepartureCity()
+                Text("\(cityFrom.name)").font(.headline)
                 Divider()
                 formatDate(date: fare.departureDate)
                 
@@ -36,7 +36,7 @@ struct FareRowDetailView: View {
             }
             Spacer()
             VStack(spacing:15) {
-                setReturnCity()
+                Text("\(cityTo.name)").font(.headline)
                 Divider()
                 formatDate(date: fare.arrivalDate)
             }
@@ -45,7 +45,6 @@ struct FareRowDetailView: View {
         .padding(20)
         .onTapGesture {
             self.saveFare(fare: self.fare)
-            self.jumpToNextView()
         }
         
     }
@@ -59,32 +58,6 @@ struct FareRowDetailView: View {
         }
     }
     
-    func setDepartureCity() -> Text {
-        switch flightType {
-        case FlightType.DEPARTURE:
-            return Text("\(cityFrom.name)").font(.headline)
-        case FlightType.RETURN:
-            return Text("\(cityTo.name)").font(.headline)
-        }
-    }
-    
-    func setReturnCity() -> Text {
-        switch flightType {
-        case FlightType.DEPARTURE:
-            return Text("\(cityTo.name)").font(.headline)
-        case FlightType.RETURN:
-            return Text("\(cityFrom.name)").font(.headline)
-        }
-    }
-    
-    func jumpToNextView() {
-        if(self.viewsManager.selected == 10) {
-            self.viewsManager.selected = 11
-        } else {
-            self.viewsManager.selected = 12
-        }
-        
-    }
     
     func formatDate(date: Date) -> Text {
         let formatter = DateFormatter()

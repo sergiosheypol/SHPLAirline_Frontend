@@ -159,7 +159,7 @@
 				41A13D1124097B23006CBF6A /* CheckoutView.swift */,
 				417AEBE42400519000434381 /* FlightPickerView.swift */,
 				417AEBF42400736D00434381 /* GenericRowItemView.swift */,
-				41DD7FE924044DF200894749 /* mainScreen */,
+				41DD7FE924044DF200894749 /* flightPicker */,
 				41A13D1024097B02006CBF6A /* farePickerScreen */,
 			);
 			path = view;
@@ -183,13 +183,13 @@
 			path = farePickerScreen;
 			sourceTree = "<group>";
 		};
-		41DD7FE924044DF200894749 /* mainScreen */ = {
+		41DD7FE924044DF200894749 /* flightPicker */ = {
 			isa = PBXGroup;
 			children = (
 				417AEBE22400509A00434381 /* AirportSelectionView.swift */,
 				4191781A2402B282006BBBE0 /* DatePickerView.swift */,
 			);
-			path = mainScreen;
+			path = flightPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

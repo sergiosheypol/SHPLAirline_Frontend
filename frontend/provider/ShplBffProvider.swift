@@ -25,7 +25,7 @@ class ShplBffProvider: ObservableObject {
         return self.autocompletedAirports
     }
     
-    func getDepartureFlights() -> [Fare] {
+    func getFares() -> [Fare] {
         return self.fares
     }
 
