@@ -15,6 +15,8 @@ struct FareListView: View {
     @EnvironmentObject var bookingDetails: BookingDetails
     @EnvironmentObject var viewsManager: ViewsManager
     
+    @State var isFaresEmpty : Bool = false
+    
     let flightType : FlightType
     
     var body: some View {
@@ -46,9 +48,27 @@ struct FareListView: View {
                         Text("Choose return flight")
                 }
             }
+            
         }
-        .onAppear(perform: {self.callFareProvider()})
-        .navigationBarTitle(Text("Available \(flightType.rawValue.lowercased()) flights"), displayMode: .inline)
+        .onAppear(perform: {
+            self.callFareProvider()
+            
+//            if (self.shplBffProvider.getFares().isEmpty) {
+//                self.isFaresEmpty = true
+//            } else {
+//                self.isFaresEmpty = false
+//            }
+            
+        })
+            .navigationBarTitle(Text("Available \(flightType.rawValue.lowercased()) flights"), displayMode: .inline)
+//            .alert(isPresented: $isFaresEmpty) {
+//                Alert(title: Text("No fares available"),
+//                      message: Text("Please select different values"),
+//                      dismissButton:.default(Text("Got it!")) {
+//                        self.viewsManager.selected = 0
+//                    })
+//        }
+        
         
         
         
