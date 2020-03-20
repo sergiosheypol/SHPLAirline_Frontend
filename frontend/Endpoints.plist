@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bff</key>
+	<string>http://localhost:3000/graphql</string>
+	<key>users</key>
+	<string>https://pnairhygljaxpiuknz7uapwnsi.appsync-api.us-west-2.amazonaws.com/graphql</string>
+	<key>apiKey</key>
+	<string>da2-naklc5xn5ndrzjs2qy7ieh6544</string>
+</dict>
+</plist>

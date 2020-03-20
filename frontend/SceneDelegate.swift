@@ -16,7 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var shplBffProvider = ShplBffProvider()
     var tripDetails = TripDetails()
     var bookingDetails = BookingDetails()
-    
+    var shplUserMgmtProvider = ShplUserMgmtProvider()
+    var userDetails = UserDetails()
+
     
     var viewsManager : ViewsManager = ViewsManager()
 
@@ -26,12 +28,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
+        
+
+    
         let contentView = AppView()
             .environmentObject(shplBffProvider)
             .environmentObject(tripDetails)
             .environmentObject(viewsManager)
             .environmentObject(bookingDetails)
-        
+            .environmentObject(userDetails)
+    
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

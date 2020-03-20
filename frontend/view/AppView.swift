@@ -20,6 +20,10 @@ struct AppView: View {
                     Image(systemName: "creditcard")
                     Text("Basket")
             }
+            UserProfileMgmtView().tabItem{
+                Image(systemName: "person")
+                Text("Profile")
+            }
         }
         
     }

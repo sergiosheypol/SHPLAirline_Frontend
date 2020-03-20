@@ -11,16 +11,18 @@ import Apollo
 
 class ShplBffProvider: ObservableObject {
     
-    private let endpoint = "http://192.168.1.49:3000/graphql"
+    
     private let shplBffClient: ApolloClient
-        
+    
+    private let endpointsProvider = EndpointsProvider()
+    
     @Published private var autocompletedAirports: [Autocomplete] = [Autocomplete]()
     @Published private var fares: [Fare] = [Fare]()
     
     init() {
-        shplBffClient = ApolloClient(url: URL(string: self.endpoint)!)
+        shplBffClient = ApolloClient(url: URL(string: self.endpointsProvider.bff!)!)
     }
-    
+
     func getSuggestions() -> [Autocomplete] {
         return self.autocompletedAirports
     }

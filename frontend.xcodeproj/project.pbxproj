@@ -28,12 +28,18 @@
 		417AEBF72401447900434381 /* FlightTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF62401447900434381 /* FlightTypeEnum.swift */; };
 		417AEBF924014B0F00434381 /* ViewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF824014B0F00434381 /* ViewsManager.swift */; };
 		4191781B2402B282006BBBE0 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4191781A2402B282006BBBE0 /* DatePickerView.swift */; };
-		4191781E2402B657006BBBE0 /* ModalView in Frameworks */ = {isa = PBXBuildFile; productRef = 4191781D2402B657006BBBE0 /* ModalView */; };
 		419178202402D798006BBBE0 /* ShplCustomProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4191781F2402D798006BBBE0 /* ShplCustomProvider.swift */; };
 		41A13D0F24085948006CBF6A /* BookingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A13D0E24085948006CBF6A /* BookingDetails.swift */; };
 		41A13D1224097B23006CBF6A /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A13D1124097B23006CBF6A /* CheckoutView.swift */; };
 		41DD7FEB24044E1A00894749 /* FareListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD7FEA24044E1A00894749 /* FareListView.swift */; };
 		41DD7FED2404513500894749 /* Fare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD7FEC2404513500894749 /* Fare.swift */; };
+		41F47C5B2425267500329CEB /* Endpoints.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41F47C5A2425267500329CEB /* Endpoints.plist */; };
+		41F47C5F2425303C00329CEB /* EndpointsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C5E2425303C00329CEB /* EndpointsProvider.swift */; };
+		41F47C61242543D400329CEB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C60242543D400329CEB /* User.swift */; };
+		41F47C63242543E000329CEB /* ShplUserMgmtProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C62242543E000329CEB /* ShplUserMgmtProvider.swift */; };
+		41F47C6524254EE500329CEB /* UserProfileMgmtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C6424254EE500329CEB /* UserProfileMgmtView.swift */; };
+		41F47C68242550BB00329CEB /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C67242550BB00329CEB /* UserDetails.swift */; };
+		41F47C6C242554BA00329CEB /* LoginFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C6B242554BA00329CEB /* LoginFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +70,13 @@
 		41A13D1124097B23006CBF6A /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		41DD7FEA24044E1A00894749 /* FareListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareListView.swift; sourceTree = "<group>"; };
 		41DD7FEC2404513500894749 /* Fare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fare.swift; sourceTree = "<group>"; };
+		41F47C5A2425267500329CEB /* Endpoints.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Endpoints.plist; sourceTree = "<group>"; };
+		41F47C5E2425303C00329CEB /* EndpointsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointsProvider.swift; sourceTree = "<group>"; };
+		41F47C60242543D400329CEB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		41F47C62242543E000329CEB /* ShplUserMgmtProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShplUserMgmtProvider.swift; sourceTree = "<group>"; };
+		41F47C6424254EE500329CEB /* UserProfileMgmtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileMgmtView.swift; sourceTree = "<group>"; };
+		41F47C67242550BB00329CEB /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		41F47C6B242554BA00329CEB /* LoginFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +85,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				417AEBD123FF1DDE00434381 /* Apollo in Frameworks */,
-				4191781E2402B657006BBBE0 /* ModalView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +119,7 @@
 				417AEBBC23FF1B4900434381 /* Assets.xcassets */,
 				417AEBC123FF1B4900434381 /* LaunchScreen.storyboard */,
 				417AEBC423FF1B4900434381 /* Info.plist */,
+				41F47C5A2425267500329CEB /* Endpoints.plist */,
 				417AEBBE23FF1B4900434381 /* Preview Content */,
 			);
 			path = frontend;
@@ -131,8 +144,10 @@
 		417AEBD523FFF56100434381 /* provider */ = {
 			isa = PBXGroup;
 			children = (
+				41F47C5E2425303C00329CEB /* EndpointsProvider.swift */,
 				417AEBD323FFF55900434381 /* ShplBffProvider.swift */,
 				4191781F2402D798006BBBE0 /* ShplCustomProvider.swift */,
+				41F47C62242543E000329CEB /* ShplUserMgmtProvider.swift */,
 			);
 			path = provider;
 			sourceTree = "<group>";
@@ -147,6 +162,8 @@
 				417AEBEE24006C3200434381 /* City.swift */,
 				417AEBF024006C7400434381 /* Country.swift */,
 				417AEBF224006CD900434381 /* Autocomplete.swift */,
+				41F47C60242543D400329CEB /* User.swift */,
+				41F47C67242550BB00329CEB /* UserDetails.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -159,8 +176,10 @@
 				41A13D1124097B23006CBF6A /* CheckoutView.swift */,
 				417AEBE42400519000434381 /* FlightPickerView.swift */,
 				417AEBF42400736D00434381 /* GenericRowItemView.swift */,
+				41F47C6424254EE500329CEB /* UserProfileMgmtView.swift */,
 				41DD7FE924044DF200894749 /* flightPicker */,
 				41A13D1024097B02006CBF6A /* farePickerScreen */,
+				41F47C6624254EEE00329CEB /* userProfile */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -192,6 +211,14 @@
 			path = flightPicker;
 			sourceTree = "<group>";
 		};
+		41F47C6624254EEE00329CEB /* userProfile */ = {
+			isa = PBXGroup;
+			children = (
+				41F47C6B242554BA00329CEB /* LoginFormView.swift */,
+			);
+			path = userProfile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -211,7 +238,6 @@
 			name = frontend;
 			packageProductDependencies = (
 				417AEBD023FF1DDE00434381 /* Apollo */,
-				4191781D2402B657006BBBE0 /* ModalView */,
 			);
 			productName = frontend;
 			productReference = 417AEBB323FF1B4700434381 /* shpl-fe.app */;
@@ -243,7 +269,6 @@
 			mainGroup = 417AEBAA23FF1B4700434381;
 			packageReferences = (
 				417AEBCF23FF1DDE00434381 /* XCRemoteSwiftPackageReference "apollo-ios" */,
-				4191781C2402B657006BBBE0 /* XCRemoteSwiftPackageReference "modal-view" */,
 			);
 			productRefGroup = 417AEBB423FF1B4700434381 /* Products */;
 			projectDirPath = "";
@@ -260,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				417AEBC323FF1B4900434381 /* LaunchScreen.storyboard in Resources */,
+				41F47C5B2425267500329CEB /* Endpoints.plist in Resources */,
 				417AEBC023FF1B4900434381 /* Preview Assets.xcassets in Resources */,
 				417AEBBD23FF1B4900434381 /* Assets.xcassets in Resources */,
 			);
@@ -298,13 +324,18 @@
 				41DD7FED2404513500894749 /* Fare.swift in Sources */,
 				417AEBB923FF1B4700434381 /* SceneDelegate.swift in Sources */,
 				417AEBEF24006C3200434381 /* City.swift in Sources */,
+				41F47C6524254EE500329CEB /* UserProfileMgmtView.swift in Sources */,
 				417AEBD423FFF55900434381 /* ShplBffProvider.swift in Sources */,
 				417AEBF72401447900434381 /* FlightTypeEnum.swift in Sources */,
 				4191781B2402B282006BBBE0 /* DatePickerView.swift in Sources */,
 				417AEBF124006C7400434381 /* Country.swift in Sources */,
+				41F47C6C242554BA00329CEB /* LoginFormView.swift in Sources */,
 				417AEBDA2400343700434381 /* AppView.swift in Sources */,
+				41F47C68242550BB00329CEB /* UserDetails.swift in Sources */,
+				41F47C63242543E000329CEB /* ShplUserMgmtProvider.swift in Sources */,
 				417AEBD7240001AB00434381 /* Airport.swift in Sources */,
 				41A13D0F24085948006CBF6A /* BookingDetails.swift in Sources */,
+				41F47C5F2425303C00329CEB /* EndpointsProvider.swift in Sources */,
 				41A13D1224097B23006CBF6A /* CheckoutView.swift in Sources */,
 				417AEBE72400555500434381 /* TripDetails.swift in Sources */,
 				417AEBE52400519000434381 /* FlightPickerView.swift in Sources */,
@@ -312,6 +343,7 @@
 				41417006240199E400F72FD7 /* ShplBFFGraphQL.swift in Sources */,
 				417AEBF52400736D00434381 /* GenericRowItemView.swift in Sources */,
 				417AEBE32400509A00434381 /* AirportSelectionView.swift in Sources */,
+				41F47C61242543D400329CEB /* User.swift in Sources */,
 				41DD7FEB24044E1A00894749 /* FareListView.swift in Sources */,
 				411445C02405A7CE0064D078 /* FareRowDetailView.swift in Sources */,
 				417AEBF324006CD900434381 /* Autocomplete.swift in Sources */,
@@ -518,14 +550,6 @@
 				minimumVersion = 0.22.0;
 			};
 		};
-		4191781C2402B657006BBBE0 /* XCRemoteSwiftPackageReference "modal-view" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/diniska/modal-view";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -533,11 +557,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 417AEBCF23FF1DDE00434381 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
-		};
-		4191781D2402B657006BBBE0 /* ModalView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4191781C2402B657006BBBE0 /* XCRemoteSwiftPackageReference "modal-view" */;
-			productName = ModalView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
