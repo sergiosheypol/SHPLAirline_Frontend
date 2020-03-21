@@ -36,26 +36,9 @@ struct UserProfileMgmtView: View {
                     }
                     
                 } else {
-                    Section(header: Text("Personal data")){
-                        HStack{
-                            Image(systemName: "person")
-                            Text(userDetails.userProfile!.name)
-                        }
-                        HStack{
-                            Image(systemName: "creditcard")
-                            Text(userDetails.userProfile!.dni)
-                        }
-                        HStack{
-                            Image(systemName: "at")
-                            Text(userDetails.userProfile!.email)
-                        }
-                        HStack{
-                            Image(systemName: "phone")
-                            Text(userDetails.userProfile!.phone)
-                        }
-                        
-                    }
                     
+                    UserDetailsView()
+
                     Section(header: Text("Bookings")) {
                         Text("Not retrieved yet")
                     }
