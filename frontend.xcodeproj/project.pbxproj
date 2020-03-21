@@ -40,6 +40,7 @@
 		41F47C6524254EE500329CEB /* UserProfileMgmtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C6424254EE500329CEB /* UserProfileMgmtView.swift */; };
 		41F47C68242550BB00329CEB /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C67242550BB00329CEB /* UserDetails.swift */; };
 		41F47C6C242554BA00329CEB /* LoginFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C6B242554BA00329CEB /* LoginFormView.swift */; };
+		41F47C6E24262AA700329CEB /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C6D24262AA700329CEB /* UserDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		41F47C6424254EE500329CEB /* UserProfileMgmtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileMgmtView.swift; sourceTree = "<group>"; };
 		41F47C67242550BB00329CEB /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		41F47C6B242554BA00329CEB /* LoginFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.swift; sourceTree = "<group>"; };
+		41F47C6D24262AA700329CEB /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				41F47C6B242554BA00329CEB /* LoginFormView.swift */,
+				41F47C6D24262AA700329CEB /* UserDetailsView.swift */,
 			);
 			path = userProfile;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				41F47C6C242554BA00329CEB /* LoginFormView.swift in Sources */,
 				417AEBDA2400343700434381 /* AppView.swift in Sources */,
 				41F47C68242550BB00329CEB /* UserDetails.swift in Sources */,
+				41F47C6E24262AA700329CEB /* UserDetailsView.swift in Sources */,
 				41F47C63242543E000329CEB /* ShplUserMgmtProvider.swift in Sources */,
 				417AEBD7240001AB00434381 /* Airport.swift in Sources */,
 				41A13D0F24085948006CBF6A /* BookingDetails.swift in Sources */,

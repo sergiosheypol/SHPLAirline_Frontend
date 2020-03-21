@@ -12,13 +12,13 @@ struct AppView: View {
     var body: some View {
         TabView {
             FlightPickerView().tabItem {
-                    Image(systemName: "airplane")
-                    Text("Book a flight")
+                Image(systemName: "airplane")
+                Text("Book a flight")
             }
             
             CheckoutView().tabItem {
-                    Image(systemName: "creditcard")
-                    Text("Basket")
+                Image(systemName: "creditcard")
+                Text("Basket")
             }
             UserProfileMgmtView().tabItem{
                 Image(systemName: "person")

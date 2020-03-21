@@ -11,29 +11,26 @@ import SwiftUI
 struct LoginFormView: View {
     
     @EnvironmentObject var userDetails: UserDetails
+    @EnvironmentObject var viewsManager: ViewsManager
     
-    private var shplUserMgmtProvider = ShplUserMgmtProvider()
     
-    @State private var dni = ""
+
     
+        
     var body: some View {
+        
         VStack {
-            Form {
-                Section(header: Text("DNI") ){
-                    TextField("DNI", text: $dni)
-                }
-                Section(header: Text("Submit")){
-                    Button("Login") {
-                        
-                        let user = self.shplUserMgmtProvider.getMyProfile(dni: self.dni)
-                        print(user)
-                        self.userDetails.userProfile = user
-                    }
-                }
+            
+            
+            NavigationLink(destination: UserDetailsView(), tag: 21, selection: self.$viewsManager.selected) {
+                Text("")
             }
+            
         }.navigationBarTitle("Login")
         
     }
+
+    
 }
 
 //struct LoginFormView_Previews: PreviewProvider {

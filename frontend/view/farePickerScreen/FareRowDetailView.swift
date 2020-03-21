@@ -30,7 +30,8 @@ struct FareRowDetailView: View {
             Spacer()
             VStack {
                 Image(systemName: "airplane")
-                Text("\(fare.price.base.value)\(fare.price.base.currencyCode)")
+                Text(String(format: "%.2f\(fare.price.base.currencyCode)",
+                    arguments: [(fare.price.base.value as NSString).floatValue]))
                     .font(.subheadline)
                     .foregroundColor(.green)
                 Text("\(fare.flightNumber)")
