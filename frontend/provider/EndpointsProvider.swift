@@ -13,6 +13,7 @@ class EndpointsProvider {
     var bff: String?
     var users: String?
     var apiKey: String?
+    var bookingManager: String?
     
     init() {
         guard let endpointsPlist = Bundle.main.path(forResource: "Endpoints", ofType: "plist") else {
@@ -24,6 +25,7 @@ class EndpointsProvider {
             apiKey = endpointsDict["apiKey"]
             bff = endpointsDict["bff"]
             users = endpointsDict["users"]
+            bookingManager = endpointsDict["bookingmanager"]
             return
         }
     

@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>bookingmanager</key>
+	<string>http://localhost:5000</string>
 	<key>bff</key>
 	<string>http://localhost:3000/graphql</string>
 	<key>users</key>

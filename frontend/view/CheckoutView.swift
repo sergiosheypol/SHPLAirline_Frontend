@@ -13,6 +13,7 @@ struct CheckoutView: View {
     @EnvironmentObject var viewsManager: ViewsManager
     @EnvironmentObject var bookingDetails: BookingDetails
     @EnvironmentObject var tripDetails: TripDetails
+    @EnvironmentObject var userDetails: UserDetails
     
     var body: some View {
         
@@ -39,6 +40,10 @@ struct CheckoutView: View {
                         Text("No return flight has been selected")
                     }
                 }
+                
+//                Button(action: <#T##() -> Void#>) {
+//                    Text("Confirm booking")
+//                }
             }
             .navigationBarTitle(Text("Confirm your selection"))
             .listStyle(GroupedListStyle())
