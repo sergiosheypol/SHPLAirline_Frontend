@@ -56,5 +56,16 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "closure #1 in ShplBookingMgmtProvider.saveNewBooking(bookingPushDto:):ShplBookingMgmtProvider.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "paramsJson">
+            </PersistentString>
+            <PersistentString
+               value = "parameters">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -180,5 +180,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E6391C5-F2F9-41B9-8198-C8CBFE5408A9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "frontend/provider/ShplBookingMgmtProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "saveNewBooking(bookingPushDto:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7E6391C5-F2F9-41B9-8198-C8CBFE5408A9 - eb362d647b3ec933"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "shpl_fe.ShplBookingMgmtProvider.saveNewBooking(bookingPushDto: shpl_fe.BookingPushDto) -&gt; Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "shpl-fe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lopezs/sergioData/tfm/code/shpl-fe/frontend/provider/ShplBookingMgmtProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "2554">
+               </Location>
+               <Location
+                  uuid = "7E6391C5-F2F9-41B9-8198-C8CBFE5408A9 - 364139c2fd25d240"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in shpl_fe.ShplBookingMgmtProvider.saveNewBooking(bookingPushDto: shpl_fe.BookingPushDto) -&gt; Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "shpl-fe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lopezs/sergioData/tfm/code/shpl-fe/frontend/provider/ShplBookingMgmtProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

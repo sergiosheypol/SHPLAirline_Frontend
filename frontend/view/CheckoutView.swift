@@ -15,6 +15,8 @@ struct CheckoutView: View {
     @EnvironmentObject var tripDetails: TripDetails
     @EnvironmentObject var userDetails: UserDetails
     
+    private let bookingService = BookingService()
+    
     var body: some View {
         
         NavigationView {
@@ -41,9 +43,21 @@ struct CheckoutView: View {
                     }
                 }
                 
-//                Button(action: <#T##() -> Void#>) {
-//                    Text("Confirm booking")
-//                }
+                
+                if (isDepFlightSelected() && isRetFlightSelected() && self.bookingService.checkIfUserIsLoggedIn(user: userDetails.userProfile)) {
+                    Section{
+                        NavigationLink(destination: CheckoutInputDetailsView()) {
+                            Text("Proceeed to checkout").foregroundColor(.red)
+                        }
+                    }
+                } else {
+                    Section{
+                        Text("Select flights and login first")
+                    }
+                }
+                
+                
+                
             }
             .navigationBarTitle(Text("Confirm your selection"))
             .listStyle(GroupedListStyle())
@@ -67,6 +81,8 @@ struct CheckoutView: View {
         
         return true
     }
+
+    
 }
 
 struct CheckoutView_Previews: PreviewProvider {

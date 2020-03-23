@@ -10,6 +10,8 @@
 		410D7FAD2427922C0065F8C2 /* BookingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D7FAC2427922C0065F8C2 /* BookingService.swift */; };
 		410D7FB1242794B20065F8C2 /* TripDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D7FB0242794B20065F8C2 /* TripDetails.swift */; };
 		410D7FB32427972E0065F8C2 /* BookingPushDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D7FB22427972E0065F8C2 /* BookingPushDto.swift */; };
+		410D7FB5242934FC0065F8C2 /* BookingResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D7FB4242934FC0065F8C2 /* BookingResponseDto.swift */; };
+		410D7FB7242938D50065F8C2 /* CheckoutInputDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D7FB6242938D50065F8C2 /* CheckoutInputDetailsView.swift */; };
 		411445C02405A7CE0064D078 /* FareRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411445BF2405A7CE0064D078 /* FareRowDetailView.swift */; };
 		41417006240199E400F72FD7 /* ShplBFFGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41417005240199E400F72FD7 /* ShplBFFGraphQL.swift */; };
 		417AEBB723FF1B4700434381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBB623FF1B4700434381 /* AppDelegate.swift */; };
@@ -49,6 +51,8 @@
 		410D7FAC2427922C0065F8C2 /* BookingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingService.swift; sourceTree = "<group>"; };
 		410D7FB0242794B20065F8C2 /* TripDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetails.swift; sourceTree = "<group>"; };
 		410D7FB22427972E0065F8C2 /* BookingPushDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPushDto.swift; sourceTree = "<group>"; };
+		410D7FB4242934FC0065F8C2 /* BookingResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingResponseDto.swift; sourceTree = "<group>"; };
+		410D7FB6242938D50065F8C2 /* CheckoutInputDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutInputDetailsView.swift; sourceTree = "<group>"; };
 		411445BF2405A7CE0064D078 /* FareRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareRowDetailView.swift; sourceTree = "<group>"; };
 		41417005240199E400F72FD7 /* ShplBFFGraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShplBFFGraphQL.swift; path = frontend/ShplBFFGraphQL.swift; sourceTree = SOURCE_ROOT; };
 		417AEBB323FF1B4700434381 /* shpl-fe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shpl-fe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +117,14 @@
 				410D7FB0242794B20065F8C2 /* TripDetails.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		410D7FB8242938D90065F8C2 /* checkout */ = {
+			isa = PBXGroup;
+			children = (
+				410D7FB6242938D50065F8C2 /* CheckoutInputDetailsView.swift */,
+			);
+			path = checkout;
 			sourceTree = "<group>";
 		};
 		417AEBAA23FF1B4700434381 = {
@@ -203,6 +215,7 @@
 				41F47C6424254EE500329CEB /* UserProfileMgmtView.swift */,
 				41DD7FE924044DF200894749 /* flightPicker */,
 				41A13D1024097B02006CBF6A /* farePickerScreen */,
+				410D7FB8242938D90065F8C2 /* checkout */,
 				41F47C6624254EEE00329CEB /* userProfile */,
 			);
 			path = view;
@@ -221,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				410D7FB22427972E0065F8C2 /* BookingPushDto.swift */,
+				410D7FB4242934FC0065F8C2 /* BookingResponseDto.swift */,
 			);
 			path = dto;
 			sourceTree = "<group>";
@@ -369,7 +383,9 @@
 				419CB6BA2427804F00B2DD48 /* ShplBookingMgmtProvider.swift in Sources */,
 				41F47C68242550BB00329CEB /* UserDetails.swift in Sources */,
 				41F47C6E24262AA700329CEB /* UserDetailsView.swift in Sources */,
+				410D7FB7242938D50065F8C2 /* CheckoutInputDetailsView.swift in Sources */,
 				41F47C63242543E000329CEB /* ShplUserMgmtProvider.swift in Sources */,
+				410D7FB5242934FC0065F8C2 /* BookingResponseDto.swift in Sources */,
 				417AEBD7240001AB00434381 /* Airport.swift in Sources */,
 				41A13D0F24085948006CBF6A /* BookingDetails.swift in Sources */,
 				41F47C5F2425303C00329CEB /* EndpointsProvider.swift in Sources */,

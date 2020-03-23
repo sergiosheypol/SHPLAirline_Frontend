@@ -13,9 +13,7 @@ struct UserDetailsView: View {
     @EnvironmentObject var userDetails: UserDetails
     
     var body: some View {
-        
-        
-        
+    
         Section(header: Text("Personal data")){
             HStack{
                 Image(systemName: "person")
@@ -43,15 +41,6 @@ struct UserDetailsView: View {
             }
             
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
     }
     
