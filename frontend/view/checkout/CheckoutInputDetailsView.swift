@@ -14,6 +14,10 @@ struct CheckoutInputDetailsView: View {
     
     @EnvironmentObject var userDetails: UserDetails
     @EnvironmentObject var bookingDetails: BookingDetails
+    @EnvironmentObject var viewsManager: ViewsManager
+    
+    @State private var isBookingSuccesful = false
+    @State private var isBookingError = false
     
     @State var creditCard = ""
 
@@ -26,16 +30,32 @@ struct CheckoutInputDetailsView: View {
             }
             
             Button(action: {
-                let pnrDeparture = self.bookingService.bookFlight(fareOpt: self.bookingDetails.departureFlight!, user: self.userDetails.userProfile!)
-                let pnrReturn = self.bookingService.bookFlight(fareOpt: self.bookingDetails.returnFlight!, user: self.userDetails.userProfile!)
-                
-                print(pnrDeparture, pnrReturn)
+                self.bookFlights()
+                self.displayAlerts()
             }) {
                 Text("Book")
             }
+            .alert(isPresented: $isBookingSuccesful) {
+                Alert(title: Text("Booked succesfully"), message: Text("Enjoy your flight!"), dismissButton: .default(Text("Perfect!")))
+            }
+            
+            
         }.listStyle(GroupedListStyle())
         .navigationBarTitle("Confirm booking")
         
+    }
+    
+    func bookFlights() {
+        self.bookingDetails.departureFlightPnr = self.bookingService.bookFlight(fareOpt: self.bookingDetails.departureFlight!, user: self.userDetails.userProfile!)
+        self.bookingDetails.returnFlightPnr = self.bookingService.bookFlight(fareOpt: self.bookingDetails.returnFlight!, user: self.userDetails.userProfile!)
+    }
+    
+    func displayAlerts()  {
+        if(self.bookingDetails.departureFlightPnr != nil && self.bookingDetails.returnFlightPnr != nil) {
+            self.isBookingSuccesful = true
+        } else {
+            self.isBookingError = true
+        }
     }
 }
 

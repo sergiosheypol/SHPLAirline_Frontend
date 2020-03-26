@@ -36,12 +36,8 @@ struct UserProfileMgmtView: View {
                     }
                     
                 } else {
-                    
                     UserDetailsView()
-
-                    Section(header: Text("Bookings")) {
-                        Text("Not retrieved yet")
-                    }
+                    BookedFlightsView()
                 }
                 
             }

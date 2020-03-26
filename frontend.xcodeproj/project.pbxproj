@@ -13,6 +13,7 @@
 		410D7FB5242934FC0065F8C2 /* BookingResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D7FB4242934FC0065F8C2 /* BookingResponseDto.swift */; };
 		410D7FB7242938D50065F8C2 /* CheckoutInputDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D7FB6242938D50065F8C2 /* CheckoutInputDetailsView.swift */; };
 		411445C02405A7CE0064D078 /* FareRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411445BF2405A7CE0064D078 /* FareRowDetailView.swift */; };
+		4138161B242CDC04009F0589 /* BookedFlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138161A242CDC04009F0589 /* BookedFlightsView.swift */; };
 		41417006240199E400F72FD7 /* ShplBFFGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41417005240199E400F72FD7 /* ShplBFFGraphQL.swift */; };
 		417AEBB723FF1B4700434381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBB623FF1B4700434381 /* AppDelegate.swift */; };
 		417AEBB923FF1B4700434381 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBB823FF1B4700434381 /* SceneDelegate.swift */; };
@@ -54,6 +55,7 @@
 		410D7FB4242934FC0065F8C2 /* BookingResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingResponseDto.swift; sourceTree = "<group>"; };
 		410D7FB6242938D50065F8C2 /* CheckoutInputDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutInputDetailsView.swift; sourceTree = "<group>"; };
 		411445BF2405A7CE0064D078 /* FareRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareRowDetailView.swift; sourceTree = "<group>"; };
+		4138161A242CDC04009F0589 /* BookedFlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedFlightsView.swift; sourceTree = "<group>"; };
 		41417005240199E400F72FD7 /* ShplBFFGraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShplBFFGraphQL.swift; path = frontend/ShplBFFGraphQL.swift; sourceTree = SOURCE_ROOT; };
 		417AEBB323FF1B4700434381 /* shpl-fe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shpl-fe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		417AEBB623FF1B4700434381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			children = (
 				41F47C6B242554BA00329CEB /* LoginFormView.swift */,
 				41F47C6D24262AA700329CEB /* UserDetailsView.swift */,
+				4138161A242CDC04009F0589 /* BookedFlightsView.swift */,
 			);
 			path = userProfile;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				417AEBB923FF1B4700434381 /* SceneDelegate.swift in Sources */,
 				417AEBEF24006C3200434381 /* City.swift in Sources */,
 				41F47C6524254EE500329CEB /* UserProfileMgmtView.swift in Sources */,
+				4138161B242CDC04009F0589 /* BookedFlightsView.swift in Sources */,
 				417AEBD423FFF55900434381 /* ShplBffProvider.swift in Sources */,
 				417AEBF72401447900434381 /* FlightTypeEnum.swift in Sources */,
 				410D7FB1242794B20065F8C2 /* TripDetails.swift in Sources */,

@@ -44,7 +44,7 @@ class ShplBookingMgmtProvider: ObservableObject {
             
             pnr = try! JSONDecoder().decode(BookingResponseDto.self, from: data).pnr
             
-            
+            print("Booking confirmed with pnr {\(pnr)}")
             semaphore.signal()
         }
         

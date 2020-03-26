@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import ModalView
 
 struct FlightPickerView: View {
     
