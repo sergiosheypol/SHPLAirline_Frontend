@@ -17,7 +17,6 @@ struct CheckoutInputDetailsView: View {
     @EnvironmentObject var viewsManager: ViewsManager
     
     @State private var isBookingSuccesful = false
-    @State private var isBookingError = false
     
     @State var creditCard = ""
 
@@ -48,13 +47,13 @@ struct CheckoutInputDetailsView: View {
     func bookFlights() {
         self.bookingDetails.departureFlightPnr = self.bookingService.bookFlight(fareOpt: self.bookingDetails.departureFlight!, user: self.userDetails.userProfile!)
         self.bookingDetails.returnFlightPnr = self.bookingService.bookFlight(fareOpt: self.bookingDetails.returnFlight!, user: self.userDetails.userProfile!)
+        self.bookingDetails.departureFlight = nil
+        self.bookingDetails.returnFlight = nil
     }
     
     func displayAlerts()  {
         if(self.bookingDetails.departureFlightPnr != nil && self.bookingDetails.returnFlightPnr != nil) {
             self.isBookingSuccesful = true
-        } else {
-            self.isBookingError = true
         }
     }
 }

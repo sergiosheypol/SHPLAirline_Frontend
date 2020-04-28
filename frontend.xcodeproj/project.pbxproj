@@ -46,6 +46,7 @@
 		41F47C68242550BB00329CEB /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C67242550BB00329CEB /* UserDetails.swift */; };
 		41F47C6C242554BA00329CEB /* LoginFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C6B242554BA00329CEB /* LoginFormView.swift */; };
 		41F47C6E24262AA700329CEB /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C6D24262AA700329CEB /* UserDetailsView.swift */; };
+		49A4AEE22458A685009CE08E /* Confirmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE12458A685009CE08E /* Confirmed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		41F47C67242550BB00329CEB /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		41F47C6B242554BA00329CEB /* LoginFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.swift; sourceTree = "<group>"; };
 		41F47C6D24262AA700329CEB /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
+		49A4AEE12458A685009CE08E /* Confirmed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirmed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				41F47C67242550BB00329CEB /* UserDetails.swift */,
 				41A13D0E24085948006CBF6A /* BookingDetails.swift */,
 				410D7FB0242794B20065F8C2 /* TripDetails.swift */,
+				49A4AEE12458A685009CE08E /* Confirmed.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				417AEBF924014B0F00434381 /* ViewsManager.swift in Sources */,
+				49A4AEE22458A685009CE08E /* Confirmed.swift in Sources */,
 				417AEBB723FF1B4700434381 /* AppDelegate.swift in Sources */,
 				41DD7FED2404513500894749 /* Fare.swift in Sources */,
 				417AEBB923FF1B4700434381 /* SceneDelegate.swift in Sources */,
