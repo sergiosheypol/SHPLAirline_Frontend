@@ -25,7 +25,6 @@ struct AirportSelectionView: View {
                 TextField("",text: $autocompletePhrase)
                 Button(action: {
                     self.shplBffProvider.getAutocomplete(phrase: self.autocompletePhrase)
-                    print(self.shplBffProvider.getSuggestions())
                 }) {
                     Text("Search for airports")
                 }

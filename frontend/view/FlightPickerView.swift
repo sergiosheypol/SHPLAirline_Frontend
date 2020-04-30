@@ -35,19 +35,37 @@ struct FlightPickerView: View {
                         
                     }
                     
-                    Section() {
-                        DatePicker(selection: $tripDetails.departureDate, displayedComponents: .date) {
-                            Text("Select departure date")
+                    
+                    Section (header: Text("Departure date")){
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Choose departure date").font(.headline)
+                                Divider()
+                                DatePicker(selection: $tripDetails.departureDate, displayedComponents: .date) {
+                                    Text("")
+                                }
+                                .labelsHidden()
+                            }
+                            
+                        }.padding(15)
+                    }
+                    
+                    Section(header: Text("Return date")) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Choose return date").font(.headline)
+                                Divider()
+                                DatePicker(selection: $tripDetails.returnDate, displayedComponents: .date) {
+                                    Text("")
+                                }
+                                .labelsHidden()
+                            }
+                            
                         }.padding(15)
                     }
                     
                     
-                    Section() {
-                        DatePicker(selection: $tripDetails.returnDate, displayedComponents: .date) {
-                            Text("Select arrival date")
-                        }.padding(15)
-                        
-                    }
+                    
                     
                     Section {
                         NavigationLink(

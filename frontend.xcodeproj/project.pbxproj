@@ -32,7 +32,6 @@
 		417AEBF52400736D00434381 /* GenericRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF42400736D00434381 /* GenericRowItemView.swift */; };
 		417AEBF72401447900434381 /* FlightTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF62401447900434381 /* FlightTypeEnum.swift */; };
 		417AEBF924014B0F00434381 /* ViewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBF824014B0F00434381 /* ViewsManager.swift */; };
-		4191781B2402B282006BBBE0 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4191781A2402B282006BBBE0 /* DatePickerView.swift */; };
 		419CB6BA2427804F00B2DD48 /* ShplBookingMgmtProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CB6B92427804F00B2DD48 /* ShplBookingMgmtProvider.swift */; };
 		41A13D0F24085948006CBF6A /* BookingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A13D0E24085948006CBF6A /* BookingDetails.swift */; };
 		41A13D1224097B23006CBF6A /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A13D1124097B23006CBF6A /* CheckoutView.swift */; };
@@ -79,7 +78,6 @@
 		417AEBF42400736D00434381 /* GenericRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericRowItemView.swift; sourceTree = "<group>"; };
 		417AEBF62401447900434381 /* FlightTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTypeEnum.swift; sourceTree = "<group>"; };
 		417AEBF824014B0F00434381 /* ViewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsManager.swift; sourceTree = "<group>"; };
-		4191781A2402B282006BBBE0 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		419CB6B92427804F00B2DD48 /* ShplBookingMgmtProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShplBookingMgmtProvider.swift; sourceTree = "<group>"; };
 		41A13D0E24085948006CBF6A /* BookingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetails.swift; sourceTree = "<group>"; };
 		41A13D1124097B23006CBF6A /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				417AEBE22400509A00434381 /* AirportSelectionView.swift */,
-				4191781A2402B282006BBBE0 /* DatePickerView.swift */,
 			);
 			path = flightPicker;
 			sourceTree = "<group>";
@@ -401,7 +398,6 @@
 				49A4AEE6245B4675009CE08E /* ReturnFareListView.swift in Sources */,
 				417AEBF72401447900434381 /* FlightTypeEnum.swift in Sources */,
 				410D7FB1242794B20065F8C2 /* TripDetails.swift in Sources */,
-				4191781B2402B282006BBBE0 /* DatePickerView.swift in Sources */,
 				417AEBF124006C7400434381 /* Country.swift in Sources */,
 				41F47C6C242554BA00329CEB /* LoginFormView.swift in Sources */,
 				410D7FAD2427922C0065F8C2 /* BookingService.swift in Sources */,
