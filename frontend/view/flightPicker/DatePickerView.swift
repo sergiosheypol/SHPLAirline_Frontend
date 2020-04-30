@@ -18,8 +18,8 @@ struct DatePickerView: View {
     var body: some View {
         VStack {
             DatePicker(selection: setDateVariable(), displayedComponents: .date) {
-                Text("")
-            }.padding(30)
+                Text("Pick a date")
+            }
         }
     }
     

@@ -14,6 +14,9 @@ struct FlightPickerView: View {
     
     @EnvironmentObject var viewsManager: ViewsManager
     
+    @State var showDepartureDatePicker = false
+    @State var showReturnDatePicker = false
+    
     var body: some View {
         
         NavigationView {
@@ -32,31 +35,33 @@ struct FlightPickerView: View {
                         
                     }
                     
-                    Section(header: Text("Select departure date")) {
-                        NavigationLink(destination: DatePickerView(viewName: FlightType.DEPARTURE), tag: 3, selection: $viewsManager.selected) {
-                            showDatePicker(dateOpt: tripDetails.departureDate)
-                        }
+                    Section() {
+                        DatePicker(selection: $tripDetails.departureDate, displayedComponents: .date) {
+                            Text("Select departure date")
+                        }.padding(15)
                     }
                     
-                    Section(header: Text("Select arrival date")) {
-                        NavigationLink(destination: DatePickerView(viewName: FlightType.RETURN), tag: 4, selection: $viewsManager.selected) {
-                            showDatePicker(dateOpt: tripDetails.returnDate)
-                        }
+                    
+                    Section() {
+                        DatePicker(selection: $tripDetails.returnDate, displayedComponents: .date) {
+                            Text("Select arrival date")
+                        }.padding(15)
+                        
                     }
                     
                     Section {
                         NavigationLink(
-                            destination:FareListView(flightType: FlightType.DEPARTURE),
+                            destination:DepartureFareListView(),
                             tag: 10,
                             selection: $viewsManager.selected) {
                                 Text("Search")
                         }.foregroundColor(Color.green)
                     }
                     
-                
+                    
                 }
                 .navigationBarTitle(Text("Choose your flight"))
-    
+                
                 
                 
             }
