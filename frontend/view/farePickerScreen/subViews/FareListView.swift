@@ -12,6 +12,7 @@ struct FareListView: View {
     
     @EnvironmentObject var shplBffProvider: ShplBffProvider
     @EnvironmentObject var tripDetails: TripDetails
+    @EnvironmentObject var bookingDetails: BookingDetails
     
     var flightType: FlightType
     
@@ -23,7 +24,19 @@ struct FareListView: View {
                     cityFrom: self.setDepartureCity(),
                     cityTo: self.setReturnCity(),
                     flightType: self.flightType)
+                    .onTapGesture {
+                        self.saveFare(fare: fare)
+                }
             }
+        }
+    }
+    
+    func saveFare(fare: Fare) {
+        switch flightType {
+        case FlightType.DEPARTURE:
+            self.bookingDetails.departureFlight = fare
+        case FlightType.RETURN:
+            self.bookingDetails.returnFlight = fare
         }
     }
     

@@ -37,7 +37,7 @@ struct UserProfileMgmtView: View {
                     
                 } else {
                     UserDetailsView()
-                    BookedFlightsView()
+                    BookedFlightsView(userId: self.userDetails.userProfile!.dni)
                 }
                 
             }

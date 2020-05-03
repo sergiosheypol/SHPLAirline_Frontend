@@ -8,9 +8,6 @@
 
 import Foundation
 
-
-
-
 struct Fare: Codable, Hashable {
     var flightNumber: String
     var departureAirport: String

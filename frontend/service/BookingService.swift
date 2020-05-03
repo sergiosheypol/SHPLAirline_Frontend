@@ -46,11 +46,50 @@ class BookingService {
         
     }
     
+    func getFlights(userId: String) -> [Booking] {
+        guard let bookingsDto = shplBookingMgmtProvider.getBookings(userId: userId) else {
+            return []
+        }
+        
+        var bookings: [Booking] = []
+        
+        for (flightId, booking) in bookingsDto.bookings {
+            
+            let flightIdDetails = flightId.split(separator: "~")
+            
+            let booking = Booking(flightId: flightId,
+                                  iataCode: String(flightIdDetails[0]),
+                                  pnr: booking.pnr,
+                                  departureAirportName: String(flightIdDetails[1]),
+                                  arrivalAirportName: String(flightIdDetails[2]),
+                                  departureDate: Date.init(),
+                                  arrivalDate: Date.init(),
+                                  price: booking.price)
+            
+            bookings.append(booking)
+            
+        }
+        
+        
+        return bookings
+        
+    }
+    
     private func dateToString(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
         
         return formatter.string(from: date)
+    }
+    
+    private func stringToDate(dateStg: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+        
+        print(dateStg)
+
+        return formatter.date(from: dateStg)!
+        
     }
     
     

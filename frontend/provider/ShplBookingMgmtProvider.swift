@@ -13,6 +13,7 @@ class ShplBookingMgmtProvider: ObservableObject {
     
     private let endpointsProvider = EndpointsProvider()
     private let saveNewBookingEndpoint = "/booking/saveBooking"
+    private let getBookingsEndpoint = "/booking/getBookings/"
     
     func saveNewBooking(bookingPushDto: BookingPushDto) -> String? {
         
@@ -40,7 +41,7 @@ class ShplBookingMgmtProvider: ObservableObject {
                 return
             }
             
-            print(String(data: data, encoding: .utf8)!)
+            //            print(String(data: data, encoding: .utf8)!)
             
             pnr = try! JSONDecoder().decode(BookingResponseDto.self, from: data).pnr
             
@@ -53,6 +54,43 @@ class ShplBookingMgmtProvider: ObservableObject {
         
         return pnr
         
+        
+    }
+    
+    func getBookings(userId: String) -> BookingsDto? {
+        
+        let endpoint = "\(self.endpointsProvider.bookingManager!)\(self.getBookingsEndpoint)\(userId)"
+        
+        let semaphore = DispatchSemaphore (value: 0)
+        
+        var request = URLRequest(url: URL(string: endpoint)!,timeoutInterval: Double.infinity)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.httpMethod = "GET"
+        
+        var bookings: BookingsDto?
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                print(String(describing: error))
+                return
+            }
+            
+            if let bookingsOpt = try? JSONDecoder().decode(BookingsDto.self, from: data) {
+                bookings = bookingsOpt
+                print("Bookings from user {\(userId)} decoded successfully")
+            } else {
+                print("Error while decoding bookings from user {\(userId)}")
+            }
+                        
+            //            print(String(data: data, encoding: .utf8)!)
+            semaphore.signal()
+        }
+        
+        task.resume()
+        semaphore.wait()
+        
+        return bookings
         
     }
 }

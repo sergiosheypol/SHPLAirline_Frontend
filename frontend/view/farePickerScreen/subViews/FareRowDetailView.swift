@@ -14,8 +14,6 @@ struct FareRowDetailView: View {
     var cityFrom: City
     var cityTo: City
     
-    @EnvironmentObject var bookingDetails: BookingDetails
-    @EnvironmentObject var viewsManager: ViewsManager
     let flightType : FlightType
     
     var body: some View {
@@ -48,21 +46,7 @@ struct FareRowDetailView: View {
             
         }
         .padding(20)
-        .onTapGesture {
-            self.saveFare(fare: self.fare)
-        }
-        
     }
-    
-    func saveFare(fare: Fare) {
-        switch flightType {
-        case FlightType.DEPARTURE:
-            bookingDetails.departureFlight = fare
-        case FlightType.RETURN:
-            bookingDetails.returnFlight = fare
-        }
-    }
-    
     
     func formatDate(date: Date) -> Text {
         let formatter = DateFormatter()
