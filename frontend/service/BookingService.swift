@@ -11,6 +11,7 @@ import Foundation
 class BookingService {
     
     private let shplBookingMgmtProvider = ShplBookingMgmtProvider()
+    private let shplFlightMgmtProvider = ShplFlightMgmtProvider()
         
     func checkIfUserIsLoggedIn(user: User?) -> Bool {
         guard user != nil else {
@@ -26,7 +27,9 @@ class BookingService {
         }
         
         let price = "\(fare.price.base.value)\(fare.price.base.currencyCode)"
-        let flightId = "\(fare.flightNumber)~\(fare.departureAirport)~\(fare.arrivalAirport)~\(fare.departureDate)"
+        let dateId = self.formatDateId(date: fare.departureDate)
+        
+        let flightId = "\(fare.flightNumber)\(fare.departureAirport)\(fare.arrivalAirport)\(dateId)"
         
         let flight = FlightDto(id: flightId,
                                iataCode: fare.flightNumber,
@@ -54,16 +57,19 @@ class BookingService {
         var bookings: [Booking] = []
         
         for (flightId, booking) in bookingsDto.bookings {
-            
-            let flightIdDetails = flightId.split(separator: "~")
+                        
+            guard let flight = shplFlightMgmtProvider.getFlightDetails(flightId: flightId) else {
+                continue
+            }
+
             
             let booking = Booking(flightId: flightId,
-                                  iataCode: String(flightIdDetails[0]),
+                                  iataCode: flight.iataCode,
                                   pnr: booking.pnr,
-                                  departureAirportName: String(flightIdDetails[1]),
-                                  arrivalAirportName: String(flightIdDetails[2]),
-                                  departureDate: Date.init(),
-                                  arrivalDate: Date.init(),
+                                  departureAirportName: flight.departureAirport,
+                                  arrivalAirportName: flight.arrivalAirport,
+                                  departureDate: stringToDate(dateStg: flight.departureDate),
+                                  arrivalDate: stringToDate(dateStg: flight.arrivalDate),
                                   price: booking.price)
             
             bookings.append(booking)
@@ -82,9 +88,16 @@ class BookingService {
         return formatter.string(from: date)
     }
     
+    private func formatDateId(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMddHHmm"
+        
+        return formatter.string(from: date)
+    }
+    
     private func stringToDate(dateStg: String) -> Date {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
         print(dateStg)
 

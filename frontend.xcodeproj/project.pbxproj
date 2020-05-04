@@ -47,6 +47,8 @@
 		499480D9245EDAC00075B199 /* BookingsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480D8245EDAC00075B199 /* BookingsDto.swift */; };
 		499480DB245EDFEA0075B199 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480DA245EDFEA0075B199 /* Booking.swift */; };
 		499480E0245EE6360075B199 /* BookingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480DF245EE6360075B199 /* BookingItemView.swift */; };
+		499480E22460782F0075B199 /* ShplFlightMgmtProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480E12460782F0075B199 /* ShplFlightMgmtProvider.swift */; };
+		499480E424607BCA0075B199 /* FlightResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480E324607BCA0075B199 /* FlightResponseDto.swift */; };
 		49A4AEE22458A685009CE08E /* Confirmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE12458A685009CE08E /* Confirmed.swift */; };
 		49A4AEE4245B45A5009CE08E /* SelectedFlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE3245B45A5009CE08E /* SelectedFlightView.swift */; };
 		49A4AEE6245B4675009CE08E /* ReturnFareListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE5245B4675009CE08E /* ReturnFareListView.swift */; };
@@ -95,6 +97,8 @@
 		499480D8245EDAC00075B199 /* BookingsDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsDto.swift; sourceTree = "<group>"; };
 		499480DA245EDFEA0075B199 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		499480DF245EE6360075B199 /* BookingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingItemView.swift; sourceTree = "<group>"; };
+		499480E12460782F0075B199 /* ShplFlightMgmtProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShplFlightMgmtProvider.swift; sourceTree = "<group>"; };
+		499480E324607BCA0075B199 /* FlightResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightResponseDto.swift; sourceTree = "<group>"; };
 		49A4AEE12458A685009CE08E /* Confirmed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirmed.swift; sourceTree = "<group>"; };
 		49A4AEE3245B45A5009CE08E /* SelectedFlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFlightView.swift; sourceTree = "<group>"; };
 		49A4AEE5245B4675009CE08E /* ReturnFareListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnFareListView.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				417AEBD323FFF55900434381 /* ShplBffProvider.swift */,
 				41F47C62242543E000329CEB /* ShplUserMgmtProvider.swift */,
 				419CB6B92427804F00B2DD48 /* ShplBookingMgmtProvider.swift */,
+				499480E12460782F0075B199 /* ShplFlightMgmtProvider.swift */,
 			);
 			path = provider;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 				410D7FB22427972E0065F8C2 /* BookingPushDto.swift */,
 				410D7FB4242934FC0065F8C2 /* BookingResponseDto.swift */,
 				499480D8245EDAC00075B199 /* BookingsDto.swift */,
+				499480E324607BCA0075B199 /* FlightResponseDto.swift */,
 			);
 			path = dto;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				49A4AEE22458A685009CE08E /* Confirmed.swift in Sources */,
 				417AEBB723FF1B4700434381 /* AppDelegate.swift in Sources */,
 				41DD7FED2404513500894749 /* Fare.swift in Sources */,
+				499480E22460782F0075B199 /* ShplFlightMgmtProvider.swift in Sources */,
 				417AEBB923FF1B4700434381 /* SceneDelegate.swift in Sources */,
 				417AEBEF24006C3200434381 /* City.swift in Sources */,
 				41F47C6524254EE500329CEB /* UserProfileMgmtView.swift in Sources */,
@@ -429,6 +436,7 @@
 				410D7FB32427972E0065F8C2 /* BookingPushDto.swift in Sources */,
 				41A13D1224097B23006CBF6A /* CheckoutView.swift in Sources */,
 				417AEBE52400519000434381 /* FlightPickerView.swift in Sources */,
+				499480E424607BCA0075B199 /* FlightResponseDto.swift in Sources */,
 				41417006240199E400F72FD7 /* ShplBFFGraphQL.swift in Sources */,
 				417AEBF52400736D00434381 /* GenericRowItemView.swift in Sources */,
 				499480DB245EDFEA0075B199 /* Booking.swift in Sources */,

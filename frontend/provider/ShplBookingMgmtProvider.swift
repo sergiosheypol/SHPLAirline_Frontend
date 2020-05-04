@@ -9,15 +9,15 @@
 import Foundation
 
 
-class ShplBookingMgmtProvider: ObservableObject {
+class ShplBookingMgmtProvider {
     
     private let endpointsProvider = EndpointsProvider()
-    private let saveNewBookingEndpoint = "/booking/saveBooking"
+    private let saveBookingEndpoint = "/booking/saveBooking"
     private let getBookingsEndpoint = "/booking/getBookings/"
     
     func saveNewBooking(bookingPushDto: BookingPushDto) -> String? {
         
-        let endpoint = "\(self.endpointsProvider.bookingManager!)\(self.saveNewBookingEndpoint)"
+        let endpoint = "\(self.endpointsProvider.bookingManager!)\(self.saveBookingEndpoint)"
         
         let semaphore = DispatchSemaphore (value: 0)
         

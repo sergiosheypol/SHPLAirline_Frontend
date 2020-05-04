@@ -4,6 +4,8 @@
 <dict>
 	<key>bookingmanager</key>
 	<string>http://localhost:5000</string>
+	<key>flightmanager</key>
+	<string>http://localhost:4000</string>
 	<key>bff</key>
 	<string>http://localhost:3000/graphql</string>
 	<key>users</key>
