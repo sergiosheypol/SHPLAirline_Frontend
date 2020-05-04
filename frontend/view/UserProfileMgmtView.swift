@@ -52,7 +52,6 @@ struct UserProfileMgmtView: View {
         if userDetails.userProfile != nil {
             return true
         }
-        //        self.viewsManager.selected = 20
         return false
     }
     

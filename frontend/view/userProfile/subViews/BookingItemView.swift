@@ -15,7 +15,7 @@ struct BookingItemView: View {
     @State private var enableBookingDetails = false
     
     var body: some View {
-        Section {
+        VStack {
             HStack() {
                 VStack(spacing: 15) {
                     Text("\(booking.departureAirportName)").font(.headline)

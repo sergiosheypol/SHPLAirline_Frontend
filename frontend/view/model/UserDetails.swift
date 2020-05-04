@@ -10,4 +10,5 @@ import Foundation
 
 class UserDetails: ObservableObject {
     var userProfile: User?
+    var bookings: [Booking]?
 }

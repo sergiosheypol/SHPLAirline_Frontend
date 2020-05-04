@@ -10,21 +10,40 @@ import SwiftUI
 
 struct BookedFlightsView: View {
     
-       private let bookingService = BookingService()
     
-        var userId: String
-        
+    @EnvironmentObject var userDetails: UserDetails
+    private let bookingService = BookingService()
+    
+    var userId: String
+    
     var body: some View {
-//        Section(header: Text("Bookings")){
-//            Text("Booked flights section")
-//        }
-        
-        
-        ForEach(bookingService.getFlights(userId: userId), id: \.self) { booking in
-            BookingItemView(booking: booking)
+        Section{
+            ForEach(self.getBookings(), id: \.self) { booking in
+                BookingItemView(booking: booking)
+            }
+            
+            Button(action: {
+                self.userDetails.bookings = nil
+                self.getBookings()
+            }) {
+                Text("Update bookings")
+            }
         }
         
     }
+    
+    func getBookings() -> [Booking] {
+        if self.userDetails.bookings == nil {
+            self.userDetails.bookings = self.bookingService.getFlights(userId: self.userId)
+        }
+        
+        if let bookings = self.userDetails.bookings {
+            return bookings
+        }
+        
+        return []
+    }
+    
 }
 
 //struct BookedFlightsView_Previews: PreviewProvider {
