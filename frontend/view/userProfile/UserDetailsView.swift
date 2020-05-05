@@ -10,34 +10,26 @@ import SwiftUI
 
 struct UserDetailsView: View {
     
-    @EnvironmentObject var userDetails: UserDetails
+    var user: User
     
     var body: some View {
-    
+        
         Section(header: Text("Personal data")){
             HStack{
                 Image(systemName: "person")
-                if userDetails.userProfile != nil {
-                    Text(userDetails.userProfile!.name)
-                }
+                Text(user.name)
             }
             HStack{
                 Image(systemName: "creditcard")
-                if userDetails.userProfile != nil {
-                    Text(userDetails.userProfile!.dni)
-                }
+                Text(user.dni)
             }
             HStack{
                 Image(systemName: "at")
-                if userDetails.userProfile != nil {
-                    Text(userDetails.userProfile!.email)
-                }
+                Text(user.email)
             }
             HStack{
                 Image(systemName: "phone")
-                if userDetails.userProfile != nil {
-                    Text(userDetails.userProfile!.phone)
-                }
+                Text(user.phone)
             }
             
         }
@@ -47,9 +39,9 @@ struct UserDetailsView: View {
     
     
 }
-
-struct UserDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserDetailsView()
-    }
-}
+//
+//struct UserDetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserDetailsView()
+//    }
+//}

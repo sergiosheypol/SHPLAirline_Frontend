@@ -9,6 +9,6 @@
 import Foundation
 
 class UserDetails: ObservableObject {
-    var userProfile: User?
-    var bookings: [Booking]?
+    @Published var userProfile: User?
+    @Published var bookings: [Booking]?
 }

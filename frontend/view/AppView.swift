@@ -15,7 +15,10 @@ struct AppView: View {
                 Image(systemName: "airplane")
                 Text("Book a flight")
             }
-            
+            BookingsView().tabItem{
+                Image(systemName: "bag")
+                Text("Bookings")
+            }
             CheckoutView().tabItem {
                 Image(systemName: "creditcard")
                 Text("Basket")
@@ -24,6 +27,7 @@ struct AppView: View {
                 Image(systemName: "person")
                 Text("Profile")
             }
+            
         }
         
     }

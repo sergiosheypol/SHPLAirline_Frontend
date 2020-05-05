@@ -49,7 +49,8 @@
 		499480E0245EE6360075B199 /* BookingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480DF245EE6360075B199 /* BookingItemView.swift */; };
 		499480E22460782F0075B199 /* ShplFlightMgmtProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480E12460782F0075B199 /* ShplFlightMgmtProvider.swift */; };
 		499480E424607BCA0075B199 /* FlightResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480E324607BCA0075B199 /* FlightResponseDto.swift */; };
-		49A4AEE22458A685009CE08E /* Confirmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE12458A685009CE08E /* Confirmed.swift */; };
+		499480E62461DB9F0075B199 /* BookingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480E52461DB9F0075B199 /* BookingsView.swift */; };
+		499480E92461DE460075B199 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480E82461DE460075B199 /* LoginView.swift */; };
 		49A4AEE4245B45A5009CE08E /* SelectedFlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE3245B45A5009CE08E /* SelectedFlightView.swift */; };
 		49A4AEE6245B4675009CE08E /* ReturnFareListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE5245B4675009CE08E /* ReturnFareListView.swift */; };
 		49A4AEE8245B4A2B009CE08E /* FareListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE7245B4A2B009CE08E /* FareListView.swift */; };
@@ -99,7 +100,8 @@
 		499480DF245EE6360075B199 /* BookingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingItemView.swift; sourceTree = "<group>"; };
 		499480E12460782F0075B199 /* ShplFlightMgmtProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShplFlightMgmtProvider.swift; sourceTree = "<group>"; };
 		499480E324607BCA0075B199 /* FlightResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightResponseDto.swift; sourceTree = "<group>"; };
-		49A4AEE12458A685009CE08E /* Confirmed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirmed.swift; sourceTree = "<group>"; };
+		499480E52461DB9F0075B199 /* BookingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsView.swift; sourceTree = "<group>"; };
+		499480E82461DE460075B199 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		49A4AEE3245B45A5009CE08E /* SelectedFlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFlightView.swift; sourceTree = "<group>"; };
 		49A4AEE5245B4675009CE08E /* ReturnFareListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnFareListView.swift; sourceTree = "<group>"; };
 		49A4AEE7245B4A2B009CE08E /* FareListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareListView.swift; sourceTree = "<group>"; };
@@ -131,7 +133,6 @@
 				41F47C67242550BB00329CEB /* UserDetails.swift */,
 				41A13D0E24085948006CBF6A /* BookingDetails.swift */,
 				410D7FB0242794B20065F8C2 /* TripDetails.swift */,
-				49A4AEE12458A685009CE08E /* Confirmed.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -232,9 +233,11 @@
 				417AEBE42400519000434381 /* FlightPickerView.swift */,
 				417AEBF42400736D00434381 /* GenericRowItemView.swift */,
 				41F47C6424254EE500329CEB /* UserProfileMgmtView.swift */,
+				499480E52461DB9F0075B199 /* BookingsView.swift */,
 				41DD7FE924044DF200894749 /* flightPicker */,
 				41A13D1024097B02006CBF6A /* farePickerScreen */,
 				410D7FB8242938D90065F8C2 /* checkout */,
+				499480E72461DDA30075B199 /* bookingsView */,
 				41F47C6624254EEE00329CEB /* userProfile */,
 			);
 			path = view;
@@ -281,9 +284,8 @@
 		41F47C6624254EEE00329CEB /* userProfile */ = {
 			isa = PBXGroup;
 			children = (
-				499480DE245EE6170075B199 /* subViews */,
 				41F47C6D24262AA700329CEB /* UserDetailsView.swift */,
-				4138161A242CDC04009F0589 /* BookedFlightsView.swift */,
+				499480E82461DE460075B199 /* LoginView.swift */,
 			);
 			path = userProfile;
 			sourceTree = "<group>";
@@ -294,6 +296,15 @@
 				499480DF245EE6360075B199 /* BookingItemView.swift */,
 			);
 			path = subViews;
+			sourceTree = "<group>";
+		};
+		499480E72461DDA30075B199 /* bookingsView */ = {
+			isa = PBXGroup;
+			children = (
+				499480DE245EE6170075B199 /* subViews */,
+				4138161A242CDC04009F0589 /* BookedFlightsView.swift */,
+			);
+			path = bookingsView;
 			sourceTree = "<group>";
 		};
 		49A4AEE9245B4E9B009CE08E /* subViews */ = {
@@ -407,12 +418,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				417AEBF924014B0F00434381 /* ViewsManager.swift in Sources */,
-				49A4AEE22458A685009CE08E /* Confirmed.swift in Sources */,
 				417AEBB723FF1B4700434381 /* AppDelegate.swift in Sources */,
 				41DD7FED2404513500894749 /* Fare.swift in Sources */,
 				499480E22460782F0075B199 /* ShplFlightMgmtProvider.swift in Sources */,
 				417AEBB923FF1B4700434381 /* SceneDelegate.swift in Sources */,
+				499480E62461DB9F0075B199 /* BookingsView.swift in Sources */,
 				417AEBEF24006C3200434381 /* City.swift in Sources */,
+				499480E92461DE460075B199 /* LoginView.swift in Sources */,
 				41F47C6524254EE500329CEB /* UserProfileMgmtView.swift in Sources */,
 				4138161B242CDC04009F0589 /* BookedFlightsView.swift in Sources */,
 				417AEBD423FFF55900434381 /* ShplBffProvider.swift in Sources */,

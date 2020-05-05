@@ -17,19 +17,24 @@ struct BookedFlightsView: View {
     var userId: String
     
     var body: some View {
-        Section{
+        List{
             ForEach(self.getBookings(), id: \.self) { booking in
-                BookingItemView(booking: booking)
+                Section {
+                    BookingItemView(booking: booking)
+                }
             }
             
-            Button(action: {
-                self.userDetails.bookings = nil
-                self.getBookings()
-            }) {
-                Text("Update bookings")
+            Section {
+                Button(action: {
+                    self.userDetails.bookings = nil
+                    self.getBookings()
+                }) {
+                    Text("Update bookings")
+                }
             }
         }
-        
+        .listStyle(GroupedListStyle())
+        .navigationBarTitle(Text("Bookings"))
     }
     
     func getBookings() -> [Booking] {

@@ -22,7 +22,7 @@ struct CheckoutInputDetailsView: View {
 
     var body: some View {
         List{
-            UserDetailsView()
+            UserDetailsView(user: userDetails.userProfile!)
             
             Section(header: Text("Credit card")) {
                 TextField("Type your credit card", text: $creditCard)
