@@ -16,7 +16,7 @@ struct FlightPickerView: View {
     
     @State var showDepartureDatePicker = false
     @State var showReturnDatePicker = false
-    
+        
     var body: some View {
         
         NavigationView {

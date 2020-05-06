@@ -13,8 +13,10 @@ struct ReturnFareListView: View {
     @EnvironmentObject var shplBffProvider: ShplBffProvider
     @EnvironmentObject var tripDetails: TripDetails
     @EnvironmentObject var bookingDetails: BookingDetails
+    @EnvironmentObject var viewsManager: ViewsManager
     
     @State var isFaresEmpty : Bool = false
+    
         
     var body: some View {
         
@@ -25,6 +27,11 @@ struct ReturnFareListView: View {
                                cityFrom: tripDetails.cityFrom!,
                                cityTo: tripDetails.cityTo!,
                                flightType: FlightType.RETURN)
+                
+                NavigationLink(destination: CheckoutListView()) {
+                    Text("Proceed to checkout")
+                }
+                
             }
         
             FareListView(flightType: FlightType.RETURN)

@@ -10,4 +10,5 @@ import Foundation
 
 class ViewsManager: ObservableObject {
     @Published var selected: Int? = nil
+    @Published var switchToBasketTab = false
 }

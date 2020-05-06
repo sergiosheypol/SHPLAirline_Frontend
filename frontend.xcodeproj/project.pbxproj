@@ -51,6 +51,7 @@
 		499480E424607BCA0075B199 /* FlightResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480E324607BCA0075B199 /* FlightResponseDto.swift */; };
 		499480E62461DB9F0075B199 /* BookingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480E52461DB9F0075B199 /* BookingsView.swift */; };
 		499480E92461DE460075B199 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480E82461DE460075B199 /* LoginView.swift */; };
+		499480EB2462E8350075B199 /* CheckoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480EA2462E8350075B199 /* CheckoutListView.swift */; };
 		49A4AEE4245B45A5009CE08E /* SelectedFlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE3245B45A5009CE08E /* SelectedFlightView.swift */; };
 		49A4AEE6245B4675009CE08E /* ReturnFareListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE5245B4675009CE08E /* ReturnFareListView.swift */; };
 		49A4AEE8245B4A2B009CE08E /* FareListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4AEE7245B4A2B009CE08E /* FareListView.swift */; };
@@ -102,6 +103,7 @@
 		499480E324607BCA0075B199 /* FlightResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightResponseDto.swift; sourceTree = "<group>"; };
 		499480E52461DB9F0075B199 /* BookingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsView.swift; sourceTree = "<group>"; };
 		499480E82461DE460075B199 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		499480EA2462E8350075B199 /* CheckoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutListView.swift; sourceTree = "<group>"; };
 		49A4AEE3245B45A5009CE08E /* SelectedFlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFlightView.swift; sourceTree = "<group>"; };
 		49A4AEE5245B4675009CE08E /* ReturnFareListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnFareListView.swift; sourceTree = "<group>"; };
 		49A4AEE7245B4A2B009CE08E /* FareListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareListView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				410D7FB6242938D50065F8C2 /* CheckoutInputDetailsView.swift */,
+				499480EA2462E8350075B199 /* CheckoutListView.swift */,
 			);
 			path = checkout;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				419CB6BA2427804F00B2DD48 /* ShplBookingMgmtProvider.swift in Sources */,
 				41F47C68242550BB00329CEB /* UserDetails.swift in Sources */,
 				41F47C6E24262AA700329CEB /* UserDetailsView.swift in Sources */,
+				499480EB2462E8350075B199 /* CheckoutListView.swift in Sources */,
 				410D7FB7242938D50065F8C2 /* CheckoutInputDetailsView.swift in Sources */,
 				41F47C63242543E000329CEB /* ShplUserMgmtProvider.swift in Sources */,
 				499480D9245EDAC00075B199 /* BookingsDto.swift in Sources */,

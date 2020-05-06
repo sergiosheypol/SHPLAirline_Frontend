@@ -15,7 +15,7 @@ struct DepartureFareListView: View {
     @EnvironmentObject var bookingDetails: BookingDetails
     
     @State var isFaresEmpty : Bool = false
-        
+            
     var body: some View {
         
         List{

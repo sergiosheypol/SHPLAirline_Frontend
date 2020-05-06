@@ -9,27 +9,33 @@
 import SwiftUI
 
 struct AppView: View {
+    
+    @State var selectedTab = 0
+    @EnvironmentObject var viewsManager: ViewsManager
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             FlightPickerView().tabItem {
                 Image(systemName: "airplane")
                 Text("Book a flight")
             }
-            BookingsView().tabItem{
-                Image(systemName: "bag")
-                Text("Bookings")
-            }
+            .tag(0)
             CheckoutView().tabItem {
                 Image(systemName: "creditcard")
                 Text("Basket")
-            }
+            }.tag(1)
+            BookingsView().tabItem{
+                Image(systemName: "bag")
+                Text("Bookings")
+            }.tag(2)
+                
             UserProfileMgmtView().tabItem{
                 Image(systemName: "person")
                 Text("Profile")
-            }
+            }.tag(3)
             
         }.accentColor(.green)
-        
+            
     }
 }
 
