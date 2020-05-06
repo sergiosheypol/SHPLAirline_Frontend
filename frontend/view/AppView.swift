@@ -28,7 +28,7 @@ struct AppView: View {
                 Text("Profile")
             }
             
-        }
+        }.accentColor(.green)
         
     }
 }
