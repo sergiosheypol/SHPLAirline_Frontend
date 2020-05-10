@@ -15,8 +15,6 @@ class ShplUserMgmtProvider: ObservableObject {
     
     
     func getMyProfile(dni: String) -> User? {
-        
-        
         let semaphore = DispatchSemaphore (value: 0)
         
         let parameters = "{\"query\":\"query getUser{\\n  getUSERMGMT(dni:\\\"\(dni)\\\") {\\n    dni\\n    name\\n    email\\n    phone\\n    gender\\n    age\\n  }\\n}\",\"variables\":{}}"
@@ -47,9 +45,6 @@ class ShplUserMgmtProvider: ObservableObject {
         task.resume()
         semaphore.wait()
         
-        
         return user
-        
-        
     }
 }

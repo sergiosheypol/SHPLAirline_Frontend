@@ -20,7 +20,6 @@
 		417AEBBD23FF1B4900434381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417AEBBC23FF1B4900434381 /* Assets.xcassets */; };
 		417AEBC023FF1B4900434381 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417AEBBF23FF1B4900434381 /* Preview Assets.xcassets */; };
 		417AEBC323FF1B4900434381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417AEBC123FF1B4900434381 /* LaunchScreen.storyboard */; };
-		417AEBD123FF1DDE00434381 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 417AEBD023FF1DDE00434381 /* Apollo */; };
 		417AEBD423FFF55900434381 /* ShplBffProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBD323FFF55900434381 /* ShplBffProvider.swift */; };
 		417AEBD7240001AB00434381 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBD6240001AB00434381 /* Airport.swift */; };
 		417AEBDA2400343700434381 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AEBD92400343700434381 /* AppView.swift */; };
@@ -44,6 +43,7 @@
 		41F47C6524254EE500329CEB /* UserProfileMgmtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C6424254EE500329CEB /* UserProfileMgmtView.swift */; };
 		41F47C68242550BB00329CEB /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C67242550BB00329CEB /* UserDetails.swift */; };
 		41F47C6E24262AA700329CEB /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47C6D24262AA700329CEB /* UserDetailsView.swift */; };
+		4937D95E246858F4005414D5 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 4937D95D246858F4005414D5 /* Apollo */; };
 		499480D9245EDAC00075B199 /* BookingsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480D8245EDAC00075B199 /* BookingsDto.swift */; };
 		499480DB245EDFEA0075B199 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480DA245EDFEA0075B199 /* Booking.swift */; };
 		499480E0245EE6360075B199 /* BookingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499480DF245EE6360075B199 /* BookingItemView.swift */; };
@@ -114,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				417AEBD123FF1DDE00434381 /* Apollo in Frameworks */,
+				4937D95E246858F4005414D5 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +153,7 @@
 			children = (
 				417AEBB523FF1B4700434381 /* frontend */,
 				417AEBB423FF1B4700434381 /* Products */,
+				4937D95C246858F4005414D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -293,6 +294,13 @@
 			path = userProfile;
 			sourceTree = "<group>";
 		};
+		4937D95C246858F4005414D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		499480DE245EE6170075B199 /* subViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,7 +346,7 @@
 			);
 			name = frontend;
 			packageProductDependencies = (
-				417AEBD023FF1DDE00434381 /* Apollo */,
+				4937D95D246858F4005414D5 /* Apollo */,
 			);
 			productName = frontend;
 			productReference = 417AEBB323FF1B4700434381 /* shpl-fe.app */;
@@ -411,7 +419,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" ShplBFFGraphQL.swift\n";
+			shellScript = "# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\n# DERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\n# while ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n#   if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n#     echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n#     exit 1\n#   fi\n\n#   DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\n# done\n\n# # Grab a reference to the directory where scripts are checked out\n# SCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\n# if [ -z \"${SCRIPT_PATH}\" ]; then\n#     echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n#     exit 1\n# fi\n\n# cd \"${SRCROOT}/${TARGET_NAME}\"\n# \"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" ShplBFFGraphQL.swift\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -669,7 +677,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		417AEBD023FF1DDE00434381 /* Apollo */ = {
+		4937D95D246858F4005414D5 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 417AEBCF23FF1DDE00434381 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;

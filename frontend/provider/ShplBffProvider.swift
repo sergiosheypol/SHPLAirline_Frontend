@@ -48,8 +48,23 @@ class ShplBffProvider: ObservableObject {
         }
     }
     
+    func getAvailableFares(farefinderDto: FarefinderDto) {
+        shplBffClient.fetch(query: GetFaresQuery(dto: farefinderDto)) { result in
+            switch result {
+            case .failure(let error):
+                print("Something bad happened \(error)")
+            case .success(let result):
+                
+                if let fares = self.mapAvailableFares(graphQLResult: result) {
+                    self.fares = fares
+                    print("Departure flight fares downloaded")
+                }
+                                
+            }
+        }
+    }
 
-    func mapAutocomplete(graphQLResult: GraphQLResult<GetAutocompleteQuery.Data>) -> [Autocomplete]? {
+    private func mapAutocomplete(graphQLResult: GraphQLResult<GetAutocompleteQuery.Data>) -> [Autocomplete]? {
         guard let data = graphQLResult.data?.autocomplete else {
             print("Couldn't decode data from GraphQL")
             return nil
@@ -79,23 +94,9 @@ class ShplBffProvider: ObservableObject {
         return suggestions
     }
     
-    func getAvailableFares(farefinderDto: FarefinderDto) {
-        shplBffClient.fetch(query: GetFaresQuery(dto: farefinderDto)) { result in
-            switch result {
-            case .failure(let error):
-                print("Something bad happened \(error)")
-            case .success(let result):
-                
-                if let fares = self.mapAvailableFares(graphQLResult: result) {
-                    self.fares = fares
-                    print("Departure flight fares downloaded")
-                }
-                                
-            }
-        }
-    }
     
-    func mapAvailableFares(graphQLResult: GraphQLResult<GetFaresQuery.Data>) -> [Fare]? {
+    
+    private func mapAvailableFares(graphQLResult: GraphQLResult<GetFaresQuery.Data>) -> [Fare]? {
         guard let data = graphQLResult.data?.fares else {
             print("Couldn't decode data from GraphQL")
             return nil
